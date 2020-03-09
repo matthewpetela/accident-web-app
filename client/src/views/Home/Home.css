@@ -2,7 +2,35 @@ body {
     margin: 0;
 }
 
+h1 {
+    margin: 0;
+    font-size: 48px;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+input {
+    float: left;
+    margin: 1% 0 0 1%;
+}
+
+.head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.description {
+    padding: 5%;
+    width: 40%;
+    float: left;
+}
+
 .App {
+    padding: 1%;
     text-align: center;
     background: #282c34;
 }
@@ -20,6 +48,7 @@ body {
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    margin-top: -10%;
 }
 
 .App-link {
