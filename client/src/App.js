@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import Home from "./views/Home/Home";
 import NotFound from "./views/NotFound";
+import Options from "./components/Options.js"
+import Services from "./components/Services.js"
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         </Route>
         <Route component={NotFound}/>
       </Switch>
+      <Options/>
+      <Services/>
     </div>
   );
 }
