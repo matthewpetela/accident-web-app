@@ -7,6 +7,6 @@ the entire database of cities with their CityModel data, which is:
 To access weather, /api/weather will return the Weather:
 
     API raw data
-in a TODO:format(presumably darksky for now)
+in darksky's data
 
 Routers are to named controllers, which handle details
