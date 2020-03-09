@@ -31,6 +31,8 @@ function Home() {
                 >
                 </a>
             </header>
+            <Options/>
+            <Services/>
         </div>
     );
 }
