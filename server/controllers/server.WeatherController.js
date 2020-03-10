@@ -1,5 +1,9 @@
-import request from 'request';
-export const report = (req,res)=> {
+//import request from 'request';
+var request = require('request');
+
+
+//export const report = (req,res)=> {
+const report = (req,res)=> {
     if (!req) {
         res.status(400).send({
             message: " Empty!"
@@ -15,3 +19,5 @@ export const report = (req,res)=> {
 
     });
 };
+
+module.exports = report;
