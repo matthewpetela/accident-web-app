@@ -32,7 +32,7 @@ input {
 .App {
     padding: 1%;
     text-align: center;
-    background: #282c34;
+    background: CornflowerBlue;
 }
 
 .App-logo {
@@ -40,7 +40,7 @@ input {
 }
 
 .App-header {
-    background-color: #282c34;
+    background-color: CornflowerBlue;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -52,5 +52,5 @@ input {
 }
 
 .App-link {
-    color: #09d3ac;
+    color: #483D8B;
 }

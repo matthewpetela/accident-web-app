@@ -1,12 +1,24 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/icons/logo.png';
 import NavBar from "../../components/Header/NavBar";
 import Options from "../../components/Options";
 import Services from "../../components/Services";
 import './Home.css';
 
 function Home() {
-    return (
+    const textBlock = {         
+        fontSize: '1.1vw',
+        backgroundColor: 'royalblue',           
+        width: '90%',
+        margin: 'auto',
+        flex: '1',
+        marginBottom: '18px',
+        marginTop: '18px',
+        borderRadius: '20px',
+        border: '2px solid'
+    }
+	
+	return (
         <div className="App">
             <input type="text" placeholder="Search"/>
             <div className="head">
@@ -14,12 +26,14 @@ function Home() {
             </div>
             <NavBar />
             <div className="description">
-                <h2>
-                    This web app's function is to help the user compare
-                    traffic and accident reports from different cities.
-                    It also provides information for insurance and weather reports,
-                    as well as driving tests to earn stars for insurance discounts.
-                </h2>
+				<div style={textBlock}>
+					<h2>
+						This web app's function is to help the user compare
+						traffic and accident reports from different cities.
+						It also provides information for insurance and weather reports,
+						as well as driving tests to earn stars for insurance discounts.
+					</h2>
+				</div>	
             </div>
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
