@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+//import mongoose from 'mongoose';
+var mongoose = require("mongoose");
 
 const citySchema = new mongoose.Schema({
     cityName: {type: String, required:true},
@@ -9,4 +10,5 @@ const citySchema = new mongoose.Schema({
     }
 });
 
-export default mongoose.model('cities', citySchema);
+//export default mongoose.model('cities', citySchema);
+module.exports = mongoose.model('cities', citySchema);

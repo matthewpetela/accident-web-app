@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "engines": {
-    "node" : "13.9.0"
+    "node": "13.9.0"
   },
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "mocha server/tests",
