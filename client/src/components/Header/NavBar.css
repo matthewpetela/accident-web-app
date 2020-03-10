@@ -1,5 +1,5 @@
 .header {
-    background: #282c34;
+    background: CornflowerBlue;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,9 +26,9 @@
 }
 
 .nav-link {
-    background-color: #09d3ac;
-    color: black;
-    padding: 14px 25px;
+    background-color: white;
+    color: royalblue;
+    padding: 14px 100px;
     text-align: center;
     text-decoration: none;
 }

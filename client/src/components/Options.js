@@ -5,9 +5,11 @@ import rightIcon from '../assets/icons/008-online-test.png'
 const Options = () => {
     const placeholderText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tubulo putas dicere? Ego vero volo in virtute vim esse quam maximam; Duo enim genera quae erant, fecit tria. Quo modo? Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Duo Reges: constructio interrete. Tollenda est atque extrahenda radicitus. Quid est, quod ab ea absolvi et perfici debeat? Illa tamen simplicia, vestra versuta. Urgent tamen et nihil remittunt."
     const outerDiv = {
-        backgroundColor: "grey",
+        backgroundColor: "royalblue",
         textAlign: 'center',
         borderTop: '2px solid',
+		borderLeft: '2px solid',
+		borderRight: '2px solid',
         fontSize : '3vw',
         fontWeight: 'bold'
     }
@@ -16,7 +18,7 @@ const Options = () => {
         height: '100%',
         width: '100%',
         display: 'flex',
-        backgroundColor: 'grey'
+        backgroundColor: 'white'
     }
     const imageStyling = {
         display: 'block',
@@ -27,24 +29,24 @@ const Options = () => {
     const divLeft = {
         flex: '1',
         margin: '10px',
-        backgroundColor: 'lightgrey',
+        backgroundColor: 'CornflowerBlue',
         borderRadius: '20px'
     }
     const divRight = {
         flex: '1',
         margin: '10px',
-        backgroundColor: 'lightgrey',
+        backgroundColor: 'CornflowerBlue',
         borderRadius: '20px'
     }
     const divMiddle = {
         flex: '1',
         margin: '10px',
-        backgroundColor: 'lightgrey',
+        backgroundColor: 'CornflowerBlue',
         borderRadius: '20px'
     }
     const textBlock = {         
         fontSize: '1.1vw',
-        backgroundColor: 'darkgrey',           
+        backgroundColor: 'white',           
         width: '90%',
         margin: 'auto',
         flex: '1',
