@@ -7,7 +7,8 @@ export default [
             answerB: "The driver.",
             answerC: "Both A and B are correct.",
             answerD: "None of the above."
-        }    
+        },
+        correctAnswer: "B"    
     },
     {
         questionIndex: 2,
@@ -17,7 +18,8 @@ export default [
             answerB: "To the right.",
             answerC: "Both A and B are correct.",
             answerD: "None of the above."
-        }    
+        },
+        correctAnswer: "B"    
     },
     {
         questionIndex: 3,
@@ -27,7 +29,8 @@ export default [
             answerB: "That enters from the southwest side of the intersection.",
             answerC: "Does not have their blinker flashing.",
             answerD: "That flashes their headlights first."
-        }    
+        },
+        correctAnswer: "A"    
     },
     {
         questionIndex: 4,
@@ -37,7 +40,8 @@ export default [
             answerB: "You may pass with caution.",
             answerC: "You must come to a complete stop.",
             answerD: "You are not allowed to pass."
-        }    
+        },
+        correctAnswer: "D"    
     },
     {
         questionIndex: 5,
@@ -47,7 +51,8 @@ export default [
             answerB: "A railroad crossing is ahead and to proceed with caution.",
             answerC: "Vehicles must stop and yield the right-of-way.",
             answerD: "You may proceed with caution."
-        }    
+        },
+        correctAnswer: "D"    
     },
     {
         questionIndex: 6,
@@ -57,7 +62,8 @@ export default [
             answerB: "75 feet",
             answerC: "300 feet",
             answerD: "100 feet"
-        }    
+        },
+        correctAnswer: "D"    
     },
     {
         questionIndex: 7,
@@ -67,6 +73,7 @@ export default [
             answerB: "Change lanes right away.",
             answerC: "Reduce your speed and prepare to come to a complete stop.",
             answerD: "Reduce your speed and wait for the road to straighten."
-        }    
+        },
+        correctAnswer: "A"    
     },         
 ]

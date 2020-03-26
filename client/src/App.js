@@ -4,7 +4,7 @@ import Home from "./views/Home/Home";
 import Map from "./views/Map/Map";
 import About from "./views/About/About";
 import NotFound from "./views/NotFound";
-
+import Quiz from "./views/Quiz/Quiz"
 const App = () => {
   return (
     <div>
@@ -15,6 +15,7 @@ const App = () => {
         </Route>
         <Route exact path="/map" component={Map} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/quiz" component={Quiz} />
         <Route component={NotFound}/>
       </Switch>
     </div>

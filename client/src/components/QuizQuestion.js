@@ -1,58 +1,100 @@
-import React from 'react';
-const QuizQuestion = () => {
-    function nextQuestion() {
-        if(questionIndex < questionCount)
+import React, {useState, useEffect} from 'react';
+import QuizData from "../views/Quiz/DummyData"
+import QuizResult from "../components/QuizResult"
+
+const QuizQuestion = (props) => {    
+    const [questionIndex, editIndex] = useState(0)
+    const [userAnswers, editUAnswers] = useState([])
+    const [currentAnswer, editCurrentA] = useState("")
+    const [complete, editComplete] = useState(false)
+    const [grade, editGrade] = useState(0)
+    var maxIndex = QuizData.length - 1
+    function uncheckButtons()
+    {
+        document.getElementById("A").checked = false
+        document.getElementById("B").checked = false
+        document.getElementById("C").checked = false
+        document.getElementById("D").checked = false
+    }
+    
+    function NextQuestion (e)
+    {
+        e.preventDefault()
+        if(currentAnswer == "")
+        {                        
+            alert("Select an answer to continue")
+        }
+        else if(questionIndex < maxIndex)
         {
-            answers.push(currentAnswer)
-            questionIndex = questionIndex + 1
-            currentQuizQuestion = quizQuestions[questionIndex]                        
-        }        
+            editUAnswers(userAnswers.concat(currentAnswer))
+            editIndex(questionIndex+1)
+            editCurrentA("")
+            currentQuizQuestion = QuizData[questionIndex].questionText
+            answerA = QuizData[questionIndex].answers.answerA
+            answerB = QuizData[questionIndex].answers.answerB
+            answerC = QuizData[questionIndex].answers.answerC
+            answerD = QuizData[questionIndex].answers.answerD
+            uncheckButtons()
+        }
         else
         {
-            currentQuizQuestion = "You finished the quiz!"
-        }        
+            var correctAnswers = 0
+            var answers = userAnswers.slice()
+            for(var i = 0; i < maxIndex; i++)
+            {                
+                if(answers[i] == QuizData[i].correctAnswer)
+                {
+                    correctAnswers++
+                }
+            }            
+            editGrade(100 * correctAnswers/maxIndex)
+            editComplete(true)            
+        }                        
     }
-    function setAnswer(answer) {
-        currentAnswer = answer
-    }
-    const quizQuestions = ["what is 2 + 2?", "what is 3 + 3?", "what is 6 - 3?"]
-    const answer = "This is a placeholder for answer text."
-    var questionIndex = 0;
-    var currentQuizQuestion = quizQuestions[questionIndex]
-    var currentAnswer = " "
-    var answer1, answer2, answer3, answer4
-    answer1 = answer
-    answer2 = answer
-    answer3 = answer
-    answer4 = answer
-    var questionCount = 3
-    var answers = []
+    function selectAnswer (selection)
+    {        
+        editCurrentA(selection)
+    }    
+     
+    var currentQuizQuestion = QuizData[questionIndex].questionText    
+    var answerA, answerB, answerC, answerD
+    answerA = QuizData[questionIndex].answers.answerA
+    answerB = QuizData[questionIndex].answers.answerB
+    answerC = QuizData[questionIndex].answers.answerC
+    answerD = QuizData[questionIndex].answers.answerD    
 
     const questionBox = {
-        backgroundColor: "royalblue",
-        textAlign: 'center',
+        backgroundColor: "royalblue",        
         display: 'inline-block',
         borderRadius: '20px',
+        maxWidth: '40vw',        
+        minHeight: '30vw',
         margin: 'auto'        
     }
     const innerDiv = {
         margin: '100px',
+        maxHeight: '18vw'
     }
     const answerButtonStyling = {
                         
     }
     const answerTextStyling = {
-        fontSize: '1.1vw',        
+        fontSize: '1.1vw',
+        textAlign: 'left'        
     }
     const questionText = {
-        width: '25vw',        
-        margin: "15px",
+        width: '90%',
+        height: '90%',        
+        margin: "auto",        
         fontSize: '1.3vw'        
     }
     const questionTextContainer = {
         backgroundColor: 'white',
+        width: '100%',
+        height: '100%',
+        minHeight: '5vw',
         borderRadius: '20px',
-        marginBottom: '30px'
+        marginBottom: '50px'
     }
     const nextButtonStyling = {
         margin: '15px',
@@ -60,26 +102,51 @@ const QuizQuestion = () => {
         fontSize: '1.1vw',
         borderRadius: '15px'
     }
-    return (
-        <form>
-            <div style={questionBox}>
-            <div style={innerDiv}>
-                <div style={questionTextContainer}><h3 style={questionText}>{currentQuizQuestion}</h3></div>            
-                
-                <input type="radio" id="a1" name="answer" style={answerButtonStyling} onClick={setAnswer("A")}/>
-                <label for="a1" style={answerTextStyling}>{answer1}</label><br></br>
-                <input type="radio" id="a2" name="answer" style={answerButtonStyling} onClick={setAnswer("B")}/>
-                <label for="a2" style={answerTextStyling}>{answer2}</label><br></br>
-                <input type="radio" id="a3" name="answer" style={answerButtonStyling} onClick={setAnswer("B")}/>
-                <label for="a3" style={answerTextStyling}>{answer3}</label><br></br>
-                <input type="radio" id="a4" name="answer" style={answerButtonStyling} onClick={setAnswer("B")}/>
-                <label for="a4" style={answerTextStyling}>{answer4}</label><br></br>
-            </div>
-            <button style={nextButtonStyling} onClick={nextQuestion}>Next</button>         
-            
-        </div>
-        </form>              
-       
-    );
+    const questionSpacing = {
+        marginBottom: '20px',
+        display: 'block'
+    }
+    if(!complete)
+    {
+        return (
+            <form>
+                <div style={questionBox}>
+                    <div style={innerDiv}>
+                        <div style={questionTextContainer}><div style={questionText}>{currentQuizQuestion}</div></div>            
+                        <div style={questionSpacing}>
+                            <input type="radio" id="A" name="answer" style={answerButtonStyling} onClick={() => selectAnswer("A")}/>
+                            <label for="a1" style={answerTextStyling}>{answerA}</label><br></br>
+                        </div>
+                        <div style={questionSpacing}>
+                            <input type="radio" id="B" name="answer" style={answerButtonStyling} onClick={() => selectAnswer("B")}/>
+                            <label for="a2" style={answerTextStyling}>{answerB}</label><br></br> 
+                        </div>
+                        <div style={questionSpacing}>
+                            <input type="radio" id="C" name="answer" style={answerButtonStyling} onClick={() => selectAnswer("C")}/>
+                            <label for="a3" style={answerTextStyling}>{answerC}</label><br></br> 
+                        </div>   
+                        <div style={questionSpacing}>
+                            <input type="radio" id="D" name="answer" style={answerButtonStyling} onClick={() => selectAnswer("D")}/>
+                            <label for="a4" style={answerTextStyling}>{answerD}</label><br></br> 
+                        </div>                 
+                        
+                    </div>
+                    <form>
+                        <button style={nextButtonStyling} onClick={(e) => NextQuestion(e)}>Next</button>
+                    </form>                   
+                    
+                </div>
+            </form>              
+           
+        );
+    }
+    else
+    {
+        return (
+            <QuizResult
+            quizGrade = {grade}
+            />
+        );
+    }
 }
 export default QuizQuestion;
