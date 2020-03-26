@@ -11,20 +11,23 @@ const QuizResult = (props) => {
         borderRadius: '20px',
         maxWidth: '40vw',        
         minHeight: '30vw',
+        maxHeight: '30vw',
         margin: 'auto'       
     }
     const innerDiv = {
         margin: '130px',
     }    
     const questionText = {
-        width: '25vw',        
-        margin: "15px",
-        fontSize: '1.3vw'        
+        width: '90%',
+        height: '90%',        
+        margin: "auto",        
+        fontSize: '1.5vw'         
     }
     const questionTextContainer = {
         backgroundColor: 'white',
         borderRadius: '20px',
-        marginBottom: '130px'
+        marginBottom: '100px'
+        
     }    
     if(quizGrade >= 100)
     {
