@@ -16,14 +16,14 @@ module.exports.init = () => {
         - reference README for db uri
     */
     
-    mongoose.connect(require('./config').mongoURI, {
+    mongoose.connect(process.env.DB_URI || require('./config').mongoURI, {
         useNewUrlParser: true
     });
 
 
-    mongoose.connect(require('./config').mongoURI, {
+    /*mongoose.connect(require('./config').mongoURI, {
         useNewUrlParser: true
-    });
+    });*/
 
     mongoose.set('useCreateIndex', true);
     mongoose.set('useFindAndModify', false);
