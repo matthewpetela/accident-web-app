@@ -9,8 +9,9 @@ function About(){
       <div className='head'>
         <h1> City Traffic </h1>
       </div>
-        <NavBar/>
-      </div>
+      <NavBar/>
+      
+    </div>
   )
 }
 
