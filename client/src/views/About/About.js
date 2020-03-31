@@ -26,9 +26,12 @@ function About(){
             <Col sm={4}>
               <ListGroup>
                 <ListGroup.Item action href="#link1">
-                  Rankings
+                  General Rankings
                 </ListGroup.Item>
                 <ListGroup.Item action href="#link2">
+                  Compare Cities
+                </ListGroup.Item>
+                <ListGroup.Item action href="#link3">
                   Driving Tests
                 </ListGroup.Item>
               </ListGroup>
@@ -37,12 +40,18 @@ function About(){
               <Tab.Content>
                 <Tab.Pane eventKey="#link1">
                   <p>
-                  Users can also search for their own city and compare the statistics of their 
-                  city with other cities. Users residing in the cities with the best accident 
-                  reports will recieve insurance benefits.
+                    Users can see the general rankings throughout the nation of the cities with
+                    the best accident reports. Users residing in these cities will recieve benefits
+                    on their insurance.
                   </p>
                 </Tab.Pane>
                 <Tab.Pane eventKey="#link2">
+                  <p>
+                    Users can compare their own city to other similar cities, and compare data such as
+                    accident reports and weather data.
+                  </p>
+                </Tab.Pane>
+                <Tab.Pane eventKey="#link3">
                   <p>
                     Users can take our driving tests in order to gain stars, which can be 
                     redeemed for insurance benefits.
