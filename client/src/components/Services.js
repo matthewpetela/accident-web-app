@@ -3,9 +3,9 @@ import leftIcon from '../assets/icons/006-driving-license.png'
 import middleIcon from '../assets/icons/pickup-car.png'
 import rightIcon from '../assets/icons/002-gps.png'
 const Services = () => {
-    const placeholderText11 = "get unlimited information about our accident report , weather report and ranking report for diffrent cities"
-    const placeholderText22="get all the information you need about accident report by comparing it with different cities"
-    const placeholderText33="we provide you with driving practice sample where you can test your driving skill knowledge" 
+    const placeholderText11 = "Get each city's accident reports, weather trends, and rankings!"
+    const placeholderText22="Compare accident reports between cities!"
+    const placeholderText33="Take driving quizzes and put your road knowledge to the test!" 
     const outerDiv = {
         backgroundColor: "royalblue",
         textAlign: 'center',
@@ -69,7 +69,7 @@ const Services = () => {
     }
     return (
         <div style={outerDiv}>
-            <div>Services we provide</div>
+            <div>Services We Provide</div>
             <div style={flexContainer}>
                 <div style={divLeft}>
                     <img
