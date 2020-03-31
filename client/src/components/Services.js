@@ -3,7 +3,9 @@ import leftIcon from '../assets/icons/006-driving-license.png'
 import middleIcon from '../assets/icons/pickup-car.png'
 import rightIcon from '../assets/icons/002-gps.png'
 const Services = () => {
-    const placeholderText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tubulo putas dicere? Ego vero volo in virtute vim esse quam maximam; Duo enim genera quae erant, fecit tria. Quo modo? Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Duo Reges: constructio interrete. Tollenda est atque extrahenda radicitus. Quid est, quod ab ea absolvi et perfici debeat? Illa tamen simplicia, vestra versuta. Urgent tamen et nihil remittunt."
+    const placeholderText11 = "Get each city's accident reports, weather trends, and rankings!"
+    const placeholderText22="Compare accident reports between cities!"
+    const placeholderText33="Take driving quizzes and put your road knowledge to the test!" 
     const outerDiv = {
         backgroundColor: "royalblue",
         textAlign: 'center',
@@ -67,14 +69,14 @@ const Services = () => {
     }
     return (
         <div style={outerDiv}>
-            <div>Services we provide</div>
+            <div>Services We Provide</div>
             <div style={flexContainer}>
                 <div style={divLeft}>
                     <img
                     style={imageStyling}
                     src={leftIcon}            
                     />      
-                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText}</div></div></div>          
+                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText11}</div></div></div>          
                 </div>
 
                 <div style={divMiddle}>
@@ -82,7 +84,7 @@ const Services = () => {
                     style={imageStyling}
                     src={middleIcon}            
                     />
-                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText}</div></div></div> 
+                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText22}</div></div></div> 
                 </div>
 
                 <div style={divRight}>
@@ -90,7 +92,7 @@ const Services = () => {
                     style={imageStyling}
                     src={rightIcon}            
                     />
-                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText}</div></div></div>  
+                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText33}</div></div></div>  
                 </div>                        
             </div>
         </div>        
