@@ -6,18 +6,23 @@ import './Map.css';
 
 function Map(){
 
-    var [weatherData, setWeatherData] = useState('Blank');
-
+    //var [weatherData, setWeatherData] = useState('Blank');
+	var [summaryData, setSummaryData] = useState('Loading...');
+	
     useEffect(() => {
         // Update the document title using the browser API
         request({
-            url: 'https://accident-web-app.herokuapp.com/api/weather/test', //HARDCODED TO NEW YORK CITY
+            //url: 'https://accident-web-app.herokuapp.com/api/weather/test', //HARDCODED TO NEW YORK CITY
+			url: 'http://localhost:3000/api/weather/test', //HARDCODED TO NEW YORK CITY
         }, async (error, response, body) => {
             if (error) {
-                setWeatherData('Error');
+                setSummaryData('error');
                 console.log(error);
             }else{
-                setWeatherData(body);
+				var fullBody = JSON.parse(body);
+				
+				setSummaryData(fullBody.daily.summary);
+                //setWeatherData(fullBody.currently.time);
             }
         });
     },[]);
@@ -29,7 +34,7 @@ function Map(){
         <h1> City Traffic </h1>
       </div>
       <NavBar/>
-        <p>{weatherData}</p>
+        <p>{summaryData}</p>
 
     </div>
   )
