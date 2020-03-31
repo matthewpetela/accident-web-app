@@ -29,10 +29,11 @@ input {
     float: left;
 }
 
-.App {
+.About {
     padding: 1%;
     text-align: center;
     background: CornflowerBlue;
+    height: 100vh;
 }
 
 .App-logo {
@@ -53,4 +54,20 @@ input {
 
 .App-link {
     color: #483D8B;
+}
+
+.aboutText {
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.desc {
+    color: white;
+    font-size: 20px;
+}
+
+.trafficLogo {
+    height: 30vh;
+    width: 30vh;
 }

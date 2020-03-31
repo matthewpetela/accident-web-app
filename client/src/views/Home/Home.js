@@ -22,7 +22,7 @@ function Home() {
         <div className="App">
             <input type="text" placeholder="Search"/>
             <div className="head">
-            <h1> Welcome to City Traffic </h1>
+                <h1> Welcome to City Traffic </h1>
             </div>
             <NavBar />
             <div className="description">
@@ -37,13 +37,6 @@ function Home() {
             </div>
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                </a>
             </header>
             <Options/>
             <Services/>
