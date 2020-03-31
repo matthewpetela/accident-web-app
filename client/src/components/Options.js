@@ -3,7 +3,9 @@ import leftIcon from '../assets/icons/earth.png'
 import middleIcon from '../assets/icons/graphic.png'
 import rightIcon from '../assets/icons/008-online-test.png'
 const Options = () => {
-    const placeholderText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tubulo putas dicere? Ego vero volo in virtute vim esse quam maximam; Duo enim genera quae erant, fecit tria. Quo modo? Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Duo Reges: constructio interrete. Tollenda est atque extrahenda radicitus. Quid est, quod ab ea absolvi et perfici debeat? Illa tamen simplicia, vestra versuta. Urgent tamen et nihil remittunt."
+    const placeholderText1 = "This option will provide the user to choose a city and then compare it with 4 different cities. The comparison will provide information about the number of accidents, weather, and ranking."
+    const placeholderText2 = "This option will provide the user with a general ranking of the cities, ordered by their number of accidents. It will have a chart and a graph for the user to easily visualize their chosen city’s statistics."
+    const placeholderText3 = "This option will provide the user with sample driving test questions where they can test their understanding of the driving rules. If the user does well, they will receive a star to encourage the user to complete more quizzes."
     const outerDiv = {
         backgroundColor: "royalblue",
         textAlign: 'center',
@@ -73,7 +75,7 @@ const Options = () => {
                     style={imageStyling}
                     src={leftIcon}            
                     />      
-                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText}</div></div></div>          
+                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText1}</div></div></div>          
                 </div>
 
                 <div style={divMiddle}>
@@ -81,7 +83,7 @@ const Options = () => {
                     style={imageStyling}
                     src={middleIcon}            
                     />
-                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText}</div></div></div> 
+                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText2}</div></div></div> 
                 </div>
 
                 <div style={divRight}>
@@ -89,7 +91,7 @@ const Options = () => {
                     style={imageStyling}
                     src={rightIcon}            
                     />
-                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText}</div></div></div>  
+                    <div style={textContainer}><div style={textBlock}><div style={textStyling}>{placeholderText3}</div></div></div>  
                 </div>                        
             </div>
         </div>        
