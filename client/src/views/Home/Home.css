@@ -12,6 +12,10 @@ h2 {
     color: white;
 }
 
+h3 {
+    color: white;
+}
+
 input {
     float: left;
     margin: 1% 0 0 1%;
@@ -24,6 +28,7 @@ input {
 }
 
 .description {
+    
     padding: 5%;
     width: 40%;
     float: left;

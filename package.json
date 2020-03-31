@@ -24,16 +24,38 @@
   "author": "Dakota Rennemann",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
+<<<<<<< HEAD
+    "chart.js": "^2.9.3",
+=======
+>>>>>>> origin/sprint2
     "concurrently": "^4.1.0",
     "express": "^4.17.1",
-    "mocha": "^6.2.1",
-    "mongoose": "^5.7.1",
+    "express-fileupload": "^1.1.6",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^7.1.1",
+    "mongoose": "^5.9.6",
     "morgan": "^1.9.1",
+<<<<<<< HEAD
     "nodemon": "^1.18.10",
+    "react-bootstrap": "^1.0.0",
+    "react-chartjs-2": "^2.9.0",
+=======
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "react-bootstrap": "^1.0.0",
+>>>>>>> origin/sprint2
     "request": "^2.88.2",
     "should": "^13.2.3",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "validator": "^13.0.0"
   },
-  "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme"
+  "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }

@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 48px;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+input {
+    float: left;
+    margin: 1% 0 0 1%;
+}
+
+.head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.description {
+    padding: 5%;
+    width: 40%;
+    float: left;
+}
+
+.App {
+    padding: 1%;
+    text-align: center;
+    background: CornflowerBlue;
+}
+
+.CityName {
+	text-align: left;
+	padding-left: 24%;
+	padding-bottom: 1%;
+}
+
+.flexContainer {
+	margin: auto;
+	height: 100%;
+	width: 53%;
+	display: flex;
+	justify-content: space-between;
+	align-items: top;
+	background: CornflowerBlue;
+	border-top: 2px solid;
+	border-left: 2px solid;
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+}
+.flexContainerTwo {
+	margin: auto;
+	height: 100%;
+	width: 53%;
+	display: flex;
+	align-items: top;
+	background: CornflowerBlue;
+	border-top: 2px solid;
+	border-left: 2px solid;
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+}
+
+.Form {
+	width: 50%;
+	padding-left:5%;
+	padding-top: 3%;
+	display: flex;
+}
+
+.Icon {
+	text-align: right;
+}
+
+.outerDiv {
+	background: royalblue;
+	text-align: right;
+	padding-bottom: 30%;
+	border-top: 2px solid;
+	border-left: 2px solid;
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+	font-size : 3vw;
+	font-weight: bold;
+}
+
+.textBlock {         
+	font-size: 1.1vw;
+	background: white;          
+	width: 90%;
+	margin: auto;
+	margin-bottom: 18px;
+	margin-top: 18px;
+	border: 2px solid;
+	text-align: left;
+}

@@ -12,15 +12,16 @@ h2 {
     color: white;
 }
 
-input {
-    float: left;
-    margin: 1% 0 0 1%;
-}
-
 .head {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.top {
+    width: 100%;
+    padding-bottom: 1%;
+    display: flex;
 }
 
 .description {
@@ -53,4 +54,39 @@ input {
 
 .App-link {
     color: #483D8B;
+}
+
+.graph {
+    width: 50%;
+    float: left;
+}
+
+.sidebar {
+    padding: 0 2% 2% 2%;
+    width: 50%;
+    float: right;
+}
+
+.bottom {
+    width: 100%;
+    padding-bottom: 1%;
+    display: flex;
+}
+
+.tableWrap {
+    padding: 2%;
+    width: 50%;
+}
+
+.selector {
+    padding: 2%;
+}
+
+.input {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.buttons {
+    float: left;
 }
