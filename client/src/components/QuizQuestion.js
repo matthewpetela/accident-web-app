@@ -69,14 +69,16 @@ const QuizQuestion = (props) => {
         borderRadius: '20px',
         maxWidth: '40vw',        
         minHeight: '30vw',
-        margin: 'auto'        
+        margin: 'auto',
+        border: '2px solid'         
     }
     const innerDiv = {
         margin: '100px',
         maxHeight: '18vw'
     }
     const answerButtonStyling = {
-                        
+        width: '20px',
+        height: '20px'                   
     }
     const answerTextStyling = {
         fontSize: '1.1vw',

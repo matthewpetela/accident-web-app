@@ -12,7 +12,8 @@ const QuizResult = (props) => {
         maxWidth: '40vw',        
         minHeight: '30vw',
         maxHeight: '30vw',
-        margin: 'auto'       
+        margin: 'auto',
+        border: '2px solid'        
     }
     const innerDiv = {
         margin: '130px',
@@ -21,7 +22,8 @@ const QuizResult = (props) => {
         width: '90%',
         height: '90%',        
         margin: "auto",        
-        fontSize: '1.5vw'         
+        fontSize: '1.5vw',
+        textAlign: 'center',        
     }
     const questionTextContainer = {
         backgroundColor: 'white',
@@ -34,7 +36,7 @@ const QuizResult = (props) => {
         return (                
             <div style={questionBox}>
                 <div style={innerDiv}>
-                    <div style={questionTextContainer}><h3 style={questionText}>You scored a {quizGrade}% and earned {starsEarned} gold stars.</h3></div>
+                    <div style={questionTextContainer}><h3 style={questionText}>You scored a {quizGrade}% and earned a gold.</h3></div>
                     <img src={GoldStar}/>          
                 </div>                 
             </div>
