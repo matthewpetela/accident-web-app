@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../config/config.js");
 // Load input validation
 
 // Load User model
@@ -34,7 +33,7 @@ exports.login = function(req,res){
 // Sign token
                 jwt.sign(
                     payload,
-                    keys.secretOrKey,
+                    process.env.SECRET_OR_KEY || require("../config/config.js").secretOrKey,
                     {
                         expiresIn: 31556926 // 1 year in seconds
                     },
