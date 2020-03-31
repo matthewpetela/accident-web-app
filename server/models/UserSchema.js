@@ -7,9 +7,9 @@ const UserSchema = new mongoose.Schema({
   name :{ type: String, required: true},
   age : {type: mongoose.Number, required: true},
   Gender: {type: String},
-  InsurenceName: {type: String}
-
+  InsuranceName: {type: String},
+  email: {type: String, required: true},
+  hash: {type: String, required: true}
 });
 
-
-export default mongoose.model('users', UserSchema);
+module.exports = mongoose.model('users', UserSchema);
