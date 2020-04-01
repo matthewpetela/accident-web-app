@@ -81,31 +81,34 @@ const QuizQuestion = (props) => {
         height: '20px'                   
     }
     const answerTextStyling = {
-        fontSize: '1.1vw',
-        textAlign: 'left'        
+        fontSize: '0.9vw',
+        textAlign: 'left',        
     }
     const questionText = {
         width: '90%',
         height: '90%',        
         margin: "auto",        
-        fontSize: '1.3vw'        
+        fontSize: '1.1vw',
+        color: 'black'        
     }
     const questionTextContainer = {
         backgroundColor: 'white',
         width: '100%',
         height: '100%',
-        minHeight: '5vw',
+        height: '6vw',
         borderRadius: '20px',
-        marginBottom: '50px'
+        marginBottom: '50px',
+        color: 'black'
     }
     const nextButtonStyling = {
         margin: '15px',
         marginTop: '0px',
         fontSize: '1.1vw',
-        borderRadius: '15px'
+        borderRadius: '15px',
+        color: 'black',        
     }
     const questionSpacing = {
-        marginBottom: '20px',
+        marginBottom: '2vh',
         display: 'block'
     }
     if(!complete)

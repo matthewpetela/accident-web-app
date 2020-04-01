@@ -21,13 +21,16 @@ function Quiz() {
         margin: '0 auto',
         textAlign: 'center'
     }
-    const quizBackground = {       
-        
+    const quizBackground = {
+        marginTop: '125px'       
     }
 	return (       
         <div>
+            <input type="text" placeholder="Search"/>
+            <div className="head">
+                <h1>City Traffic </h1>
+            </div>
             <NavBar/>
-            <h1 style={titleStyling}>Quiz</h1>
             <div style={quizBackground}>
                 <div style={containerStyling}>
                     <QuizQuestion/>
