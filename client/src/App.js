@@ -8,6 +8,7 @@ import NotFound from "./views/NotFound";
 import Login from "./views/LogIn/Login";
 import Signin from './views/SignIn/Signin';
 import Quiz from "./views/Quiz/Quiz"
+import Admin from "./views/Admin/Admin";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/quiz" component={Quiz} />
+        <Route exact path="/admin" component={Admin} />
         <Route component={NotFound}/>
       </Switch>
     </div>
