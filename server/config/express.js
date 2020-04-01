@@ -3,26 +3,34 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    Router = require('../routes/server.Routes');
+    Router = require('../routes/server.Routes'),
+    passport = require("passport"),
+    JwtStrategy = require("passport-jwt").Strategy,
+    ExtractJwt = require("passport-jwt").ExtractJwt,
+    fileUpload = require('express-fileupload');
 
 module.exports.init = () => {
+
     /*
         connect to database
         - reference README for db uri
     */
     
-    mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
+    mongoose.connect(process.env.DB_URI || require('./config').uri, {
         useNewUrlParser: true
     });
 
-    /*
-    mongoose.connect(process.env.DB_URI, {
+
+
+
+    /*mongoose.connect(require('./config').mongoURI, {
         useNewUrlParser: true
     });*/
 
 
     mongoose.set('useCreateIndex', true);
     mongoose.set('useFindAndModify', false);
+
 
     // initialize app
     const app = express();
@@ -32,6 +40,30 @@ module.exports.init = () => {
 
     // body parsing middleware
     app.use(bodyParser.json());
+
+    // file parsing middleware
+    app.use(fileUpload());
+
+    // Passport middleware
+    app.use(passport.initialize());
+// Passport config
+    const opts = {};
+    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+    opts.secretOrKey = process.env.SECRET_OR_KEY || require('./config').secretOrKey;
+    const User = mongoose.model("users");
+
+    passport.use(
+        new JwtStrategy(opts, (jwt_payload, done) => {
+            User.findById(jwt_payload.id)
+                .then(user => {
+                    if (user) {
+                        return done(null, user);
+                    }
+                    return done(null, false);
+                })
+                .catch(err => console.log(err));
+        })
+    );
 
     // add a router
     app.use('/api', Router);

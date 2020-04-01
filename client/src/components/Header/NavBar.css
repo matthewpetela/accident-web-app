@@ -28,12 +28,12 @@
 .nav-link {
     background-color: white;
     color: royalblue;
-    padding: 14px 100px;
+    padding: 14px 75px;
     text-align: center;
     text-decoration: none;
 }
 
 .nav-link:hover {
-    background-color: #08bd9a;
+    background-color: #d3d3d3;
 }
 
