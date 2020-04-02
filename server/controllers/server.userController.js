@@ -67,9 +67,9 @@ exports.register = function(req,res){
         } else {
             const newUser = new User({
                 name : req.body.name,
-                age : req.body.age,
-                Gender: req.body.gender,
-                InsuranceName: req.body.insurance,
+                age : 10,
+                Gender: 'The Gender',
+                InsuranceName: 'the general',
                 email: req.body.email,
                 hash: req.body.password,
             });

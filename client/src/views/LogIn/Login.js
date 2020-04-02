@@ -33,7 +33,7 @@ class LogInForm extends Component{
       e.preventDefault();
       console.log(this.state)
 		axios
-			.post('https://jsonplaceholder.typicode.com/user', this.state)
+			.post('http://localhost:5000/api/users/login', this.state)
 			.then(response => {
 				console.log(response)
 			})
@@ -59,7 +59,8 @@ class LogInForm extends Component{
         <div className="front__Form">
         
         <div className="FormCenter">
-            <form className = "FormField">
+
+            <form onSubmit={this.handleSubmit} className="FormFields" >
                 
                 <div className = "FormField">
                 <label className="FormField__Label" htmlFor="name">Full Name</label>

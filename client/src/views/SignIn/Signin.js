@@ -40,16 +40,16 @@ handleChange(e) {
     e.preventDefault();
     
     console.log('The form was submitted with the following data:');
-    console.log(this.state);
-   
+    console.table(this.state);
+
   axios
-    .post('https://jsonplaceholder.typicode.com/posts', this.state)
+    .post('http://localhost:5000/api/users/register', this.state)
     .then(response => {
       console.log(response)
     })
     .catch(error => {
       console.log(error)
-    })
+    });
 }
 render() {
     return (

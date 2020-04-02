@@ -7,7 +7,8 @@ const path = require('path'),
     passport = require("passport"),
     JwtStrategy = require("passport-jwt").Strategy,
     ExtractJwt = require("passport-jwt").ExtractJwt,
-    fileUpload = require('express-fileupload');
+    fileUpload = require('express-fileupload'),
+    cors = require('cors');
 
 module.exports.init = () => {
 
@@ -16,7 +17,7 @@ module.exports.init = () => {
         - reference README for db uri
     */
     
-     mongoose.connect(process.env.DB_URI || require('./config').uri, {
+     mongoose.connect(process.env.DB_URI || require('./config').mongoURI, {
          useNewUrlParser: true
      });
 
@@ -35,7 +36,11 @@ module.exports.init = () => {
     // initialize app
     const app = express();
 
+    app.use(cors());
+
     // enable request logging for development debugging
+
+
     app.use(morgan('dev'));
 
     // body parsing middleware
@@ -66,6 +71,7 @@ module.exports.init = () => {
     );
 
     // add a router
+
     app.use('/api', Router);
 
     if (process.env.NODE_ENV === 'production') {
