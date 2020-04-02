@@ -1,11 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Login.css';
 import Icon from '../../assets/icons/userlog.png'
 import request from 'request';
+import { render } from 'react-dom';
+import axios from 'axios';
 
-function Login(){
+class LogInForm extends Component{
 
-    const placeholderText ="this is the log in page please type the necessay information"
+ constructor(){
+  super();
+
+      this.state = {
+          email: '',
+          password: ''
+      };
+
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+      handleChange(e){
+        let target = e.target;
+        let value = target.type === 'checkbox' ? target.checked : target.value;
+        let name = target.name;
+
+        this.setState({
+          [name]: value
+        });
+    };
+
+   handleSubmit(e) {
+      e.preventDefault();
+      console.log(this.state)
+		axios
+			.post('https://jsonplaceholder.typicode.com/user', this.state)
+			.then(response => {
+				console.log(response)
+			})
+			.catch(error => {
+				console.log(error)
+			})
+
+      // console.log('The form was submitted with the following data:');
+      // console.log(this.state);
+  }
+
+  render(){
+
     return (
 
         <div className="frontpage">
@@ -27,12 +68,12 @@ function Login(){
 
                 <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email"/>
+                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email"  value={this.state.email} onChange={this.handleChange}/>
               </div>
 
                 <div className="FormField">
                 <label className="FormField__Label" htmlFor="password">Password</label>
-                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password"/>
+                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange}/>
               </div>
 
 
@@ -53,6 +94,6 @@ function Login(){
     
   );
 }
+}
 
-
-export default Login;
+export default LogInForm;

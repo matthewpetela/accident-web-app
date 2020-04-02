@@ -16,9 +16,9 @@ module.exports.init = () => {
         - reference README for db uri
     */
     
-    mongoose.connect(process.env.DB_URI || require('./config').uri, {
-        useNewUrlParser: true
-    });
+     mongoose.connect(process.env.DB_URI || require('./config').uri, {
+         useNewUrlParser: true
+     });
 
 
 
@@ -49,7 +49,7 @@ module.exports.init = () => {
 // Passport config
     const opts = {};
     opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-    opts.secretOrKey = process.env.SECRET_OR_KEY || require('./config').secretOrKey;
+  opts.secretOrKey = process.env.SECRET_OR_KEY || require('./config').secretOrKey;
     const User = mongoose.model("users");
 
     passport.use(

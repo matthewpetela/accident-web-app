@@ -5,10 +5,13 @@ import Rankings from "./views/Rankings/Rankings";
 import About from "./views/About/About";
 import Weather from "./views/Weather/Weather";
 import NotFound from "./views/NotFound";
-import Login from "./views/LogIn/Login";
-import Signin from './views/SignIn/Signin';
+// import Login from "./views/LogIn/Login";
+// import Signin from './views/SignIn/Signin';
 import Quiz from "./views/Quiz/Quiz"
 import Admin from "./views/Admin/Admin";
+import LogInForm from './views/LogIn/Login';
+import SignInForm from './views/SignIn/Signin';
+import Signin from './views/SignIn/Signin';
 
 const App = () => {
   return (
@@ -22,7 +25,7 @@ const App = () => {
         <Route exact path="/map" component={Map} />
 	      <Route exact path="/weather" component={Weather} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/login" component={LogInForm} />
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/quiz" component={Quiz} />
         <Route exact path="/admin" component={Admin} />
