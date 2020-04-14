@@ -31,7 +31,7 @@ class LogInForm extends Component{
 
    handleSubmit(e) {
       e.preventDefault();
-      console.log(this.state)
+      console.log(this.state);
 		axios
 			.post('http://localhost:5000/api/users/login', this.state)
 			.then(response => {

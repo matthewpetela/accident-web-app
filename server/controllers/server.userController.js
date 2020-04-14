@@ -28,7 +28,8 @@ exports.login = function(req,res){
                 // Create JWT Payload
                 const payload = {
                     id: user.id,
-                    name: user.name
+                    name: user.name,
+                    admin: user.admin
                 };
 // Sign token
                 jwt.sign(
@@ -72,6 +73,7 @@ exports.register = function(req,res){
                 InsuranceName: 'the general',
                 email: req.body.email,
                 hash: req.body.password,
+                admin: false
             });
             // Hash password before saving in database
             bcrypt.genSalt(12, (err, salt) => {
@@ -86,4 +88,17 @@ exports.register = function(req,res){
             });
         }
     });
+};
+exports.verify = function(req,res,next) {
+    jwt.verify(req.body.token,process.env.SECRET_OR_KEY || require("../config/config.js").secretOrKey,function(err,decoded){
+        if(err){
+            res.name = "";
+            req.id = -1;
+            console.log(req.body.token);
+        }else {
+            req.name = decoded.name;
+            req.id = decoded.id;
+        }
+    });
+    next();
 };

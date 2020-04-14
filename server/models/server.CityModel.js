@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 const citySchema = new mongoose.Schema({
     cityName: {type: String, required:true},
     population: {type: mongoose.Number, required:true},
+
     crashData:{
         crashes: mongoose.Number,
         insurance: String

@@ -11,6 +11,6 @@ router.get('/rankings/:cityName', cities.city);
 router.get('/weather/:cityName', weather.report);
 router.post('/users/register',validator.registerValidate,user.register);
 router.post('/users/login',validator.loginValidate,user.login);
-router.post('/upload/crashes',upload.crashes);
+router.post('/upload/crashes',user.verify,upload.crashes);
 
 module.exports = router;

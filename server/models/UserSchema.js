@@ -9,7 +9,8 @@ const UserSchema = new mongoose.Schema({
   Gender: {type: String},
   InsuranceName: {type: String},
   email: {type: String, required: true},
-  hash: {type: String, required: true}
+  hash: {type: String, required: true},
+  admin: {type: Boolean, required: true}
 });
 
 module.exports = mongoose.model('users', UserSchema);
