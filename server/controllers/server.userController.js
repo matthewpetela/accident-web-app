@@ -41,6 +41,7 @@ exports.login = function(req,res){
                     (err, token) => {
                         res.json({
                             success: true,
+                            admin: user.admin,
                             token: "Bearer " + token
                         });
                     }
