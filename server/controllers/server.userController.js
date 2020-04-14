@@ -91,15 +91,63 @@ exports.register = function(req,res){
     });
 };
 exports.verify = function(req,res,next) {
-    jwt.verify(req.body.token,process.env.SECRET_OR_KEY || require("../config/config.js").secretOrKey,function(err,decoded){
+    console.log(req.get('Authorization'));
+    jwt.verify(req.get('Authorization').substring(7),process.env.SECRET_OR_KEY || require("../config/config.js").secretOrKey,function(err,decoded){
         if(err){
             res.name = "";
             req.id = -1;
-            console.log(req.body.token);
+            console.log(req.body.token +'dab');
         }else {
             req.name = decoded.name;
             req.id = decoded.id;
         }
     });
     next();
+};
+exports.adminUserData = async function(req,res) {
+    var adminStatus;
+    var usersArray = [];
+    if(req.id === -1){
+        return res.status(400).send("Bad token")
+    }else {
+        await User.findById(req.id, function (err, user) {
+            adminStatus = user.admin;
+        });
+        if (!adminStatus) {
+            return res.status(400).send("No admin access");
+        }
+        await User.find({admin: false}, function(err, users){
+            console.log(users);
+            users.forEach(function(user){
+                var userData = {
+                    "name" : user.name,
+                    "age" : user.age,
+                    "Gender" : user.Gender,
+                    "InsuranceName" : user.InsuranceName,
+                    "email" : user.email,
+                    "quizGrade" : user.quizGrade
+                };
+                usersArray.push(userData);
+            });
+        });
+        res.status(200).send(usersArray);
+    }
+};
+
+exports.userAccount = async function(req,res) {
+    if(req.id === -1){
+        return res.status(400).send("Bad token")
+    }else {
+        await User.findById(req.id, function (err, user) {
+            res.send({
+                name: user.name,
+                age: user.age,
+                Gender: user.Gender,
+                InsuranceName: user.InsuranceName,
+                email: user.email,
+                quizGrade: user.quizGrade,
+                admin: user.admin
+            });
+        });
+    }
 };

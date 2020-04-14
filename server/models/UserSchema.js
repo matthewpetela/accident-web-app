@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema({
   InsuranceName: {type: String},
   email: {type: String, required: true},
   hash: {type: String, required: true},
+  quizGrade: {type: Number, required: true, default : 0},
   admin: {type: Boolean, required: true}
 });
 
