@@ -7,7 +7,6 @@ import './About.css';
 function About(){
   return (
     <div className='About'>
-      <input type='text' placeholder="Search"/>
       <div className='head'>
         <h1> City Traffic </h1>
       </div>

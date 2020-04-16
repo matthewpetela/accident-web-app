@@ -119,7 +119,6 @@ function Rankings(){
 
   return (
     <div className='App'>
-      <input type='text' placeholder="Search"/>
       <div className='head'>
         <h1> City Traffic </h1>
       </div>
