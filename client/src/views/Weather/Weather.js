@@ -35,8 +35,8 @@ function Weather(){
     useEffect(() => {
         // Update the document title using the browser API
         request({
-            //url: 'https://accident-web-app.herokuapp.com/api/weather/test', //HARDCODED TO NEW YORK CITY
-			url: 'http://localhost:3000/api/weather/test', //HARDCODED TO NEW YORK CITY
+            url: 'https://accident-web-app.herokuapp.com/api/weather/test', //HARDCODED TO NEW YORK CITY
+			//url: 'http://localhost:3000/api/weather/test', //HARDCODED TO NEW YORK CITY
         }, async (error, response, body) => {
             if (error) {
                 setSummaryData('error');
@@ -92,7 +92,6 @@ function Weather(){
 
   return (
     <div className='App'>
-      <inout type='text' placeholder="Search"/>
       <div className='head'>
         <h1> City Traffic </h1>
       </div>

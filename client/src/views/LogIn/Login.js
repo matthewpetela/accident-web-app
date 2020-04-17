@@ -3,6 +3,7 @@ import './Login.css';
 import Icon from '../../assets/icons/userlog.png'
 import request from 'request';
 import { render } from 'react-dom';
+import { Button } from 'react-bootstrap';
 import axios from 'axios';
 
 class LogInForm extends Component{
@@ -50,7 +51,7 @@ class LogInForm extends Component{
     return (
 
         <div className="frontpage">
-        
+        <Button onClick={() => this.props.history.push('/home')}>{'〈'}</Button>
         <div className="front__Aside">
 
         <img src={Icon} className="user-logo" alt="Icon" />

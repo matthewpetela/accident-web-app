@@ -25,8 +25,7 @@ function Quiz() {
         marginTop: '125px'       
     }
 	return (       
-        <div>
-            <input type="text" placeholder="Search"/>
+        <div className="App">
             <div className="head">
                 <h1>City Traffic </h1>
             </div>

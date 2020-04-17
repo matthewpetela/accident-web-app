@@ -22,6 +22,9 @@ function Admin(){
 
     return(
         <div className="App">
+            <div className="head">
+                <h1>City Traffic </h1>
+            </div>
             <NavBar/>
             <b> Sorry, the following user does not have administration access.</b>
         </div>

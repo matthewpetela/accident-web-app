@@ -1,8 +1,10 @@
 
-import './Signin.css';
+import './SignUp.css';
 import Icon from '../../assets/icons/userlog.png'
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import NavBar from "../../components/Header/NavBar";
 
 class Signin extends Component {
 
@@ -21,8 +23,6 @@ class Signin extends Component {
 
     //console.log(this.state);
 }
-
-
 
 handleChange(e) {
     let target = e.target;
@@ -53,11 +53,9 @@ handleChange(e) {
 }
 render() {
     return (
-
         <div className="frontpage">
-        
+        <Button onClick={() => this.props.history.push('/home')}>{'〈'}</Button>
         <div className="front__Aside">
-
         <img src={Icon} className="user-logo" alt="Icon" />
 
         </div>
