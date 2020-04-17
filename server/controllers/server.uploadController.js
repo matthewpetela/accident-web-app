@@ -36,7 +36,7 @@ exports.quizContent = async function(req, res){
         }
         let file = req.files.file;
         console.log(file);
-        file.mv(process.cwd()+`/client/src/views/Quiz/${req.body.filename}Test1`, function(err) {//make this a database later
+        file.mv(process.cwd()+`/client/src/views/Quiz/${req.body.filename}`, function(err) {//make this a database later
             if (err) {
                 return res.status(500).send(err);
             }
