@@ -43,6 +43,7 @@
     "passport-jwt": "^4.0.0",
     "react-bootstrap": "^1.0.0",
     "react-chartjs-2": "^2.9.0",
+    "react-dropzone": "^10.2.2",
     "request": "^2.88.2",
     "should": "^13.2.3",
     "supertest": "^4.0.2",
