@@ -37,6 +37,9 @@ class LogInForm extends Component{
 			.post('http://localhost:5000/api/users/login', this.state)
 			.then(response => {
 				console.log(response)
+        localStorage.setItem("token", response.data.token.substring(7))
+        localStorage.setItem("admin", response.data.admin)
+        console.log("token:" + localStorage.getItem("token"))
 			})
 			.catch(error => {
 				console.log(error)
@@ -58,14 +61,14 @@ class LogInForm extends Component{
 
         </div>
         <div className="front__Form">
-        
+
         <div className="FormCenter">
 
             <form onSubmit={this.handleSubmit} className="FormFields" >
-                
+
                 <div className = "FormField">
                 <label className="FormField__Label" htmlFor="name">Full Name</label>
-                <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" /> 
+                <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" />
                 </div>
 
                 <div className="FormField">
@@ -84,16 +87,16 @@ class LogInForm extends Component{
               </div>
 
             </form>
-            
+
             </div>
 
 
-      
+
       </div>
-     
+
        </div>
 
-    
+
   );
 }
 }

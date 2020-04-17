@@ -9,7 +9,7 @@ import NavBar from "../../components/Header/NavBar";
 class Signin extends Component {
 
    constructor() {
-   super(); 
+   super();
 
     this.state = {
         email: '',
@@ -38,7 +38,7 @@ handleChange(e) {
 
  handleSubmit(e) {
     e.preventDefault();
-    
+
     console.log('The form was submitted with the following data:');
     console.table(this.state);
 
@@ -46,6 +46,7 @@ handleChange(e) {
     .post('http://localhost:5000/api/users/register', this.state)
     .then(response => {
       console.log(response)
+      this.props.history.push("/login"); //This will Redirect to login after successful account creation however it needs a confirmation text and wait period
     })
     .catch(error => {
       console.log(error)
@@ -60,16 +61,16 @@ render() {
 
         </div>
         <div className="front__Form">
-        
+
         <div className="FormCenter">
 
         <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
-          
+
             <div className = "FormField">
-                
+
                 <div className = "FormField">
                 <label className="FormField__Label" htmlFor="name">Full Name</label>
-                <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.state.name} onChange={this.handleChange} /> 
+                <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.state.name} onChange={this.handleChange} />
                 </div>
 
                 <div className="FormField">
@@ -96,16 +97,16 @@ render() {
               </div>
 
             </form>
-            
-            
+
+
         </div>
 
-      
+
       </div>
-     
+
        </div>
 
-    
+
   );
 }
 
