@@ -1,0 +1,79 @@
+[
+  {
+    "city": "San Francisco",
+    "state": "California",
+    "avgTemp": [50.3, 52.9,54.9,56.9,59.6,62.2,63.7,64.5,64.7,61.8,55.8,50.6],
+    "avgPrecipInch": [4.14,3.60,2.45,1.10,0.42,0.06,0,0.01,0.07,0.86,2.31,2.99],
+    "annualCrash" : 20000,
+    "coordinates": [37.6197,-122.3647],
+    "tempNeighbors": ["New York","Columbus","Dallas"]
+  },
+  {
+    "city": "New York",
+    "state": "New York",
+    "avgTemp": [32.7,34.9,41.6,51.3,60.6,70.4,75.8,74.9,68.1,57.0,47.5,37.7],
+    "avgPrecipInch": [3.00,2.22,3.58,3.80,3.52,3.58,3.69,3.31,3.08,3.41,2.96,3.48],
+    "annualCrash" : 30000,
+    "coordinates": [40.7789,-73.9692],
+    "tempNeighbors": ["San Francisco","Philadelphia","Seattle"]
+  },
+  {
+    "city": "Dallas",
+    "state": "Texas",
+    "avgTemp": [4.59,49.9,57.6,65.5,73.9,81.3,85.3,85.6,78.0,67.5,56.6,47.1],
+    "avgPrecipInch": [1.93,2.55,3.32,2.73,5.06,3.44,2.25,1.64,2.16,3.72,2.43,2.43],
+    "annualCrash" : 66000,
+    "coordinates": [32.8978,-97.0189],
+    "tempNeighbors": ["San Fransisco","Jacksonville","Columbus"]
+  },
+  {
+    "city": "Phoenix",
+    "state": "Arizona",
+    "avgTemp": [564,597,652,727,821,908,948,936,884,767,641,554],
+    "avgPrecipInch": [0.70,0.69,0.91,0.17,0,0,0.77,0.61,0.46,0.37,0.46,0.76],
+    "annualCrash" : 69000,
+    "coordinates": [33.4278,-112.0039],
+    "tempNeighbors": ["Dallas","Jacksonville","Columbus"]
+
+  },
+  {
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "avgTemp": [33.0,35.7,43.5,54.0,63.9,73.3,78.1,76.6,69.1,57.5,47.6,37.5],
+    "avgPrecipInch": [2.81,2.72,3.87,3.04,3.65,3.34,4.19,3.28,3.46,2.59,2.75,3.13],
+    "annualCrash" : 10000,
+    "coordinates": [40.0819,-75.0111],
+    "tempNeighbors": ["San Francisco","New York","Seattle"]
+
+  },
+  {
+    "city": "Seattle",
+    "state": "Washington",
+    "avgTemp": [42.0,43.4,46.5,50.3,56.0,60.9,65.7,66.1,61.3,52.8,45.4,40.6],
+    "avgPrecipInch": [5.69,3.41,3.72,2.68,1.93,1.59,0.58,0.63,1.29,3.08,5.68,4.98],
+    "annualCrash" : 111000,
+    "coordinates": [47.4444,-122.3139],
+    "tempNeighbors": ["San Francisco","New York","Philadelphia"]
+
+  },
+  {
+    "city": "Jacksonville",
+    "state": "Florida",
+    "avgTemp": [52.7,55.7,60.9,66.3,73.6,79.3,81.4,80.9,77.2,70.0,61.7,54.6],
+    "avgPrecipInch": [2.19,3.04,4.13,2.61,2.04,7.11,6.60,6.45,7.03,2.34,1.79,2.01],
+    "annualCrash" : 33000,
+    "coordinates": [30.3361,-81.5147],
+    "tempNeighbors": ["San Francisco","Dallas","Columbus"]
+
+  },
+  {
+    "city": "Columbus",
+    "state": "Ohio",
+    "avgTemp": [47.2,51.1,57.8,64.6,73.0,79.8,82.5,81.9,76.6,66.5,57.3,49.1],
+    "avgPrecipInch": [3.93,4.70,4.74,2.99,2.69,3.26,4.06,3.22,2.98,2.32,3.77,3.53],
+    "annualCrash" : 33000,
+    "coordinates": [40.0606,-82.8942],
+    "tempNeighbors": ["San Francisco","Dallas","Jacksonville"]
+
+  }
+]
