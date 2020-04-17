@@ -7,7 +7,7 @@ const upload = require("../controllers/server.uploadController.js");
     express = require('express');
     router = express.Router();
 
-router.get('/rankings/:cityName', cities.city);
+router.get('/rankings/:cityName', cities.cities);
 router.get('/weather/:cityName', weather.report);
 
 router.post('/users/register',validator.registerValidate,user.register);
