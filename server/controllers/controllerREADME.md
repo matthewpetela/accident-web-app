@@ -10,7 +10,7 @@
 
     Quizes go to client/src/components/views/quiz/ 
     Crashdata go to server/adminData/ (DummyData currently)
-    And filename is also sent in request, succens is 200 OK
+    Filename is the file's name + UNIX epoch milliseconds, success is 200 OK
 
 ~userController handles register and login
 
