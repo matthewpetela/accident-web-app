@@ -2,23 +2,26 @@ import React ,{useEffect, useState} from 'react';
 import NavBar from "../../components/Header/NavBar";
 import request from 'request';
 import {Bar} from 'react-chartjs-2';
-import {ListGroup, Button, Table, InputGroup, FormControl, ButtonGroup, OverlayTrigger, Popover} from 'react-bootstrap';
+import {ListGroup, Button, Table, InputGroup, FormControl, ButtonGroup, OverlayTrigger, Popover, Dropdown} from 'react-bootstrap';
 import './Rankings.css';
+import cityData from '../../adminData/cityData';
 
 function Rankings(){
+  useEffect(() => setTop(), []);
 
-  var [weatherData, setWeatherData] = useState('Blank');
-  var [accidentData, setAccidentData] = useState([0, 0, 0, 0, 0]);
+  //var [weatherData, setWeatherData] = useState('Blank');
+  var [accidentData, setAccidentData] = useState([0, 0, 0, 0]);
   var [graphText, setGraphText] = useState('Select data period');
-  var [search, setSearch] = useState('');
-  var [cities, setCities] = useState(0);
+  var [chosen, setChosen] = useState(-1);
   var [city1, setCity1] = useState(['', '', '', '']);
   var [city2, setCity2] = useState(['', '', '', '']);
   var [city3, setCity3] = useState(['', '', '', '']);
   var [city4, setCity4] = useState(['', '', '', '']);
+  var [topCities, setTopCities] = useState(['', '', '', '', '']);
+  var [annualCrashes, setAnnualCrashes] = useState(['', '', '', '', '']);
 
   const data = {
-    labels: ['New York City', 'Chicago', 'Orlando', 'Gainesville', 'Baltimore'],
+    labels: topCities,
     datasets: [
       {
         label: 'Accidents',
@@ -32,15 +35,7 @@ function Rankings(){
     ]
   };
 
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Content>
-        You can only compare up to 4 cities at a time.
-      </Popover.Content>
-    </Popover>
-  );
-
-  useEffect(() => {
+  /*useEffect(() => {
     // Update the document title using the browser API
     request({
       url: 'https://accident-web-app.herokuapp.com/api/weather/test', //HARDCODED TO NEW YORK CITY
@@ -52,69 +47,86 @@ function Rankings(){
         setWeatherData(body);
       }
     });
-  },[]);
+  },[]);*/
 
   const setWeekly = () => {
-    setAccidentData([0, 1, 2, 2, 4]);
-    setGraphText('Week');
+    setAccidentData([Math.ceil(annualCrashes[0] / 52) , Math.ceil(annualCrashes[1] / 52), Math.ceil(annualCrashes[2] / 52), Math.ceil(annualCrashes[3] / 52), Math.ceil(annualCrashes[4] / 52)]);
+    setGraphText('Weekly');
   }
 
   const setMonthly = () => {
-    setAccidentData([11, 15, 17, 22, 30]);
-    setGraphText('Month');
+    setAccidentData([Math.ceil(annualCrashes[0] / 12) , Math.ceil(annualCrashes[1] / 12), Math.ceil(annualCrashes[2] / 12), Math.ceil(annualCrashes[3] / 12), Math.ceil(annualCrashes[4] / 12)]);
+    setGraphText('Monthly');
   }
 
   const setYearly = () => {
-    setAccidentData([150, 190, 214, 250, 272]);
-    setGraphText('Year');
+    setAccidentData(annualCrashes);
+    setGraphText('Yearly');
   }
 
-  const setText = (searchInput) => {
-    setSearch(searchInput)
-  }
-
-  const submitCity = ()  => {
-    if (search != '') {
-      if(cities + 1 == 1) {
-        setCity1([search, '105', '76 °F', (cities + 1).toString()]);
-      } else if (cities + 1 == 2) {
-        setCity2([search, '145', '95 °F', (cities + 1).toString()]);
-      } else if (cities + 1 == 3) {
-        setCity3([search, '120', '50 °F', (cities + 1).toString()]);
-      } else if (cities + 1 == 4) {
-        setCity4([search, '95', '75 °F', (cities + 1).toString()]);
-      } else {
-        return;
+  const submitCity = ()  => {    
+    cityData.map((data, index) => 
+    {
+      console.log(data.city + ' ' + index);
+      if (chosen == index) {
+        setCity1([data.city, data.annualCrash, data.avgTemp[0] + ' °F']);
+        setSimilar(cityData, data);
       }
-      setCities(cities + 1);
-      setSearch('');
-    }
+    });
   }
 
-  const removeCity1 = () => {
-    setCity1(city2);
-    setCity2(city3);
-    setCity3(city4);
-    setCity4(['', '', '', '']);
-    setCities(cities - 1);
+  const handleChange = (value) => {
+    setChosen(value);
   }
 
-  const removeCity2 = () => {
-    setCity2(city3);
-    setCity3(city4);
-    setCity4(['', '', '', '']);
-    setCities(cities - 1);
+  const setSimilar = (data, city) => {
+    console.log(data);
+    let neighbors = city.tempNeighbors;
+    console.log(city);
+    console.log(neighbors);
+    let similar2 = [neighbors[0], '', ''];
+    let similar3 = [neighbors[1], '', ''];
+    let similar4 = [neighbors[2], '', ''];
+    console.log(neighbors[0]);
+    data.map(datum => 
+    {
+      console.log('datum ' + datum)
+      if (datum.city == neighbors[0]) {
+        similar2[1] = datum.annualCrash;
+        similar2[2] = datum.avgTemp[0] + ' °F';
+      }
+      else if (datum.city == neighbors[1]) {
+        similar3[1] = datum.annualCrash;
+        similar3[2] = datum.avgTemp[0] + ' °F';
+      }
+      else if (datum.city == neighbors[2]) {
+        similar4[1] = datum.annualCrash;
+        similar4[2] = datum.avgTemp[0] + ' °F';
+      }
+    })
+    setCity2(similar2);
+    setCity3(similar3);
+    setCity4(similar4);
   }
 
-  const removeCity3 = () => {
-    setCity3(city4);
-    setCity4(['', '', '', '']);
-    setCities(cities - 1);
-  }
-
-  const removeCity4 = () => {
-    setCity4(['', '', '', '']);
-    setCities(cities - 1);
+  const setTop = () => {
+    let accidents = [];
+    cityData.map(data => 
+    {
+      accidents.push([data.annualCrash, data.city]);
+    })
+    console.log(accidents);
+    let top = accidents.sort((a, b) => a[0]-b[0]).slice(0, 5);
+    let accidentNums = [];
+    let names = [];
+    top.map(data =>
+    {
+      accidentNums.push(data[0]);
+      names.push(data[1]);
+      console.log(data);
+    })
+    setAnnualCrashes(accidentNums);
+    setTopCities(names);
   }
 
   return (
@@ -139,11 +151,11 @@ function Rankings(){
         <div className='sidebar'>
           <h3>Top Cities</h3>
           <ListGroup>
-            <ListGroup.Item variant="warning">New York City</ListGroup.Item>
-            <ListGroup.Item variant="secondary">Chicago</ListGroup.Item>
-            <ListGroup.Item>Orlando</ListGroup.Item>
-            <ListGroup.Item>Gainesville</ListGroup.Item>
-            <ListGroup.Item>Baltimore</ListGroup.Item>
+            <ListGroup.Item variant="warning">{topCities[0]}</ListGroup.Item>
+            <ListGroup.Item variant="secondary">{topCities[1]}</ListGroup.Item>
+            <ListGroup.Item>{topCities[2]}</ListGroup.Item>
+            <ListGroup.Item>{topCities[3]}</ListGroup.Item>
+            <ListGroup.Item>{topCities[4]}</ListGroup.Item>
           </ListGroup>
         </div>
       </div>
@@ -154,9 +166,8 @@ function Rankings(){
             <thead>
               <tr>
                 <th>City</th>
-                <th>Accidents</th>
+                <th>Accidents (Yearly)</th>
                 <th>Weather</th>
-                <th>Ranking</th>
               </tr>
             </thead>
             <tbody>
@@ -164,45 +175,40 @@ function Rankings(){
                 <td>{city1[0]}</td>
                 <td>{city1[1]}</td>
                 <td>{city1[2]}</td>
-                <td>{city1[3]}</td>
               </tr>
               <tr>
                 <td>{city2[0]}</td>
                 <td>{city2[1]}</td>
                 <td>{city2[2]}</td>
-                <td>{city2[3]}</td>
               </tr>
               <tr>
                 <td>{city3[0]}</td>
                 <td>{city3[1]}</td>
                 <td>{city3[2]}</td>
-                <td>{city3[3]}</td>
               </tr>
               <tr>
                 <td>{city4[0]}</td>
                 <td>{city4[1]}</td>
                 <td>{city4[2]}</td>
-                <td>{city4[3]}</td>
               </tr>
             </tbody>
           </Table>
         </div>
         <div className='selector'>
           <InputGroup className="mb-3">
-          <FormControl value = {search} className="input" placeholder='Search for a city' onChange={event => (setText(event.target.value))}/>
+          <select class="browser-default custom-select" onChange={event => (handleChange(event.target.value))}>
+            <option selected>Choose a city to compare with competitors...</option>  
+            {
+              cityData.map((data, index) => 
+              (
+                <option value={index}>{data.city}</option>
+              ))
+            }
+            </select>
             <InputGroup.Prepend>
-              { cities < 4 && <Button variant="secondary" onClick={submitCity}>Submit</Button> }
-              { cities >= 4 && <OverlayTrigger trigger="click" placement="right" overlay={popover} show={cities >= 4}>
-                <Button variant="secondary" onClick={submitCity}>Submit</Button>
-              </OverlayTrigger> }
+              <Button variant="secondary" onClick={submitCity}>Submit</Button>
             </InputGroup.Prepend>
           </InputGroup>
-          <ButtonGroup className='buttons' vertical>
-            { cities >= 1 && <Button onClick={removeCity1}>Remove {city1[0]}</Button> }
-            { cities >= 2 && <Button onClick={removeCity2}>Remove {city2[0]}</Button> }
-            { cities >= 3 && <Button onClick={removeCity3}>Remove {city3[0]}</Button> }
-            { cities == 4 && <Button onClick={removeCity4}>Remove {city4[0]}</Button> }
-          </ButtonGroup>
         </div>
       </div>
       {/*<p>{weatherData}</p>*/}
