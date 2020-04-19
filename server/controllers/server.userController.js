@@ -125,9 +125,12 @@ exports.adminUserData = async function(req,res) {
             users.forEach(function(user){
                 var userData = {
                     "name" : user.name,
+                    "address": user.address,
+                    "phoneNumber": user.phoneNumber,
                     "age" : user.age,
                     "Gender" : user.Gender,
                     "InsuranceName" : user.InsuranceName,
+                    "dashCam": user.dashCam,
                     "email" : user.email,
                     "quizGrade" : user.quizGrade
                 };
@@ -145,9 +148,12 @@ exports.userAccount = async function(req,res) {
         await User.findById(req.id, function (err, user) {
             res.send({
                 name: user.name,
+                address: user.address,
+                phoneNumber: user.phoneNumber,
                 age: user.age,
                 Gender: user.Gender,
                 InsuranceName: user.InsuranceName,
+                dashCam: user.dashCam,
                 email: user.email,
                 quizGrade: user.quizGrade,
                 admin: user.admin
