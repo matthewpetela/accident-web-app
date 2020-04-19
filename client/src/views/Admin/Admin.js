@@ -29,7 +29,7 @@ handleUpload(acceptedFiles){
   console.log(formData);
   console.log(acceptedFiles);
 
-  return axios.post('http://localhost:5000/api/upload/crashes', localStorage.getItem("token"), formData, {
+  return axios.post(process.env.NODE_ENV === 'production'?'http://accident-web-app:5000/api/users/login':'http://localhost:5000/api/upload/crashes', localStorage.getItem("token"), formData, {
         headers: { 'X-Requested-With': 'XMLHttpRequest' },
   }).then(response =>{
     console.log(response);

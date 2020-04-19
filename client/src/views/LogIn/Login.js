@@ -34,7 +34,7 @@ class LogInForm extends Component{
       e.preventDefault();
       console.log(this.state);
 		axios
-			.post('http://localhost:5000/api/users/login', this.state)
+			.post(process.env.NODE_ENV === 'production'?'http://accident-web-app:5000/api/users/login':'http://localhost:5000/api/users/login', this.state)
 			.then(response => {
 				console.log(response)
         localStorage.setItem("token", response.data.token.substring(7))
