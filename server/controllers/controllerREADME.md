@@ -1,25 +1,23 @@
-~The CitiesController is simply:
+~CitiesController is simply:
 
-1)city, the findOne wrapper for mongoose for
-a given city name, which has to be EXACT.
+    cities, which returns the local JSON file of cities and data
 
-2)cities, the find wrapper for all the cities
- 
-Frontend must parse for the name which I imagine should be from a dropdown typeable box
-using data from cities
+~WeatherController is a wrapper for Darksky API calls:
 
-Can't offload error checking without lots of https requests
+    request cityname in URL and only cities in cityData, returns raw darksky API data
 
-~WeatherController is a wrapper for Darksky API calls;
+~uploadController receives any file upload
 
-~uploadController receives any file upload and stores it in adminData
-on the server root
+    Quizes go to client/src/components/views/quiz/ 
+    Crashdata go to server/adminData/ (DummyData currently)
+    Filename is the file's name + UNIX epoch milliseconds, success is 200 OK
 
 ~userController handles register and login
 
-1)register requires body with name, age, gender, insurance, email, password, and password2, the confirmation password field
-and returns the fields but with the hash instead of passwords
-
-2)login requires email and password and returns a jwt token for serialization/sessioning
+    Register provides all data to create a user and returns 200 OK
+    Login takes email and password and provides a token good for 1 year
 
 ~validateController detects malformed inputs for login and register
+
+    Currently busted as frontend hasn't sent all user data
+
