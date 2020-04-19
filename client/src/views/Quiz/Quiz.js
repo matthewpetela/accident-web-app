@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import QuizQuestion from "../../components/QuizQuestion";
-import QuizResult from "../../components/QuizResult";
+import QuizQuestion from "./QuizQuestion";
+import QuizResult from "./QuizResult";
 import './Quiz.css';
 import NavBar from "../../components/Header/NavBar";
+import QuizData from "./DummyData";
 
 function Quiz() {
     const [questionIndex, editIndex] = useState(0)
