@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import QuizData from "../views/Quiz/DummyData"
-import QuizResult from "../components/QuizResult"
+import QuizData from "./DummyData"
+import QuizResult from "./QuizResult"
 
 const QuizQuestion = (props) => {    
     const [questionIndex, editIndex] = useState(0)
@@ -67,49 +67,51 @@ const QuizQuestion = (props) => {
         backgroundColor: "royalblue",        
         display: 'inline-block',
         borderRadius: '20px',
-        maxWidth: '40vw',        
-        minHeight: '30vw',
+        width: '50vw',        
+        minHeight: '30vh',
         margin: 'auto',
         border: '2px solid'         
     }
     const innerDiv = {
-        margin: '100px',
-        maxHeight: '18vw'
+        margin: 'calc(3vw + 3vh)',
+        minHeight: '26vh'
     }
     const answerButtonStyling = {
-        width: '20px',
-        height: '20px'                   
+        width: '3vmin',
+        height: '3vmin',
+        
     }
     const answerTextStyling = {
-        fontSize: '0.9vw',
-        textAlign: 'left',        
+        fontSize: '2vmin',
+        width: '80%'
+       
     }
     const questionText = {
         width: '90%',
-        height: '90%',        
-        margin: "auto",        
-        fontSize: '1.1vw',
-        color: 'black'        
+        minHeight: '8vh',        
+        margin: "auto",      
+        fontSize: '1.8vmin',
+        color: 'black',        
     }
     const questionTextContainer = {
         backgroundColor: 'white',
         width: '100%',
-        height: '100%',
-        height: '6vw',
+        minHeight: '8vh', 
         borderRadius: '20px',
-        marginBottom: '50px',
-        color: 'black'
+        marginBottom: '5vh',
+        color: 'black',
+
     }
     const nextButtonStyling = {
-        margin: '15px',
+        margin: 'calc(1vw + 1vh)',
         marginTop: '0px',
-        fontSize: '1.1vw',
-        borderRadius: '15px',
+        fontSize: '1.8vmin',
+        borderRadius: '20px',
         color: 'black',        
     }
     const questionSpacing = {
         marginBottom: '2vh',
-        display: 'block'
+        verticalAlign: 'center'
     }
     if(!complete)
     {
