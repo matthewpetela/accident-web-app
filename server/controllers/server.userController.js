@@ -69,11 +69,15 @@ exports.register = function(req,res){
         } else {
             const newUser = new User({
                 name : req.body.name,
-                age : 10,
-                Gender: 'The Gender',
-                InsuranceName: 'the general',
+                address: req.body.address,
+                phoneNumber: req.body.phoneNumber,
+                age : req.body.age,
+                Gender: req.body.Gender,
+                InsuranceName: req.body.InsuranceName,
+                dashCam: req.body.dashCam,
                 email: req.body.email,
                 hash: req.body.password,
+                quizGrade: 0,
                 admin: false
             });
             // Hash password before saving in database

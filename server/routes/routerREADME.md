@@ -13,7 +13,7 @@ To access weather, /api/weather will return the Weather:
     
 in darksky's data
 
-Admins require valid admin token
+Admins require valid admin token in header
 User stuff has:
 
     Register: POST User data for registering (res 200 response)
@@ -21,7 +21,7 @@ User stuff has:
     adminUserData: Admins GET full listing of user data (res userData listing)
     userAccount: Users GET own account details (res account details)
     
-
+Users require user token in header
 User uploads can:
 
     crashes: Admins POST crash data to be managed by server admins(res 200 OK)
