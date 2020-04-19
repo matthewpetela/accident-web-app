@@ -43,7 +43,7 @@ handleChange(e) {
     console.table(this.state);
 
   axios
-    .post(process.env.NODE_ENV === 'production'?'https://https://accident-web-app.herokuapp.com/api/users/login':'http://localhost:5000/api/users/register', this.state)
+    .post(process.env.NODE_ENV === 'production'?'https://accident-web-app.herokuapp.com/api/users/login':'http://localhost:5000/api/users/register', this.state)
     .then(response => {
       console.log(response)
       this.props.history.push("/login"); //This will Redirect to login after successful account creation however it needs a confirmation text and wait period
