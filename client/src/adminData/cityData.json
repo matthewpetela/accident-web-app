@@ -20,16 +20,16 @@
   {
     "city": "Dallas",
     "state": "Texas",
-    "avgTemp": [4.59,49.9,57.6,65.5,73.9,81.3,85.3,85.6,78.0,67.5,56.6,47.1],
+    "avgTemp": [45.9,49.9,57.6,65.5,73.9,81.3,85.3,85.6,78.0,67.5,56.6,47.1],
     "avgPrecipInch": [1.93,2.55,3.32,2.73,5.06,3.44,2.25,1.64,2.16,3.72,2.43,2.43],
     "annualCrash" : 66000,
     "coordinates": [32.8978,-97.0189],
-    "tempNeighbors": ["San Fransisco","Jacksonville","Columbus"]
+    "tempNeighbors": ["San Francisco","Jacksonville","Columbus"]
   },
   {
     "city": "Phoenix",
     "state": "Arizona",
-    "avgTemp": [564,597,652,727,821,908,948,936,884,767,641,554],
+    "avgTemp": [56.4,59.7,65.2,72.7,82.1,90.8,94.8,93.6,88.4,76.7,64.1,55.4],
     "avgPrecipInch": [0.70,0.69,0.91,0.17,0,0,0.77,0.61,0.46,0.37,0.46,0.76],
     "annualCrash" : 69000,
     "coordinates": [33.4278,-112.0039],
