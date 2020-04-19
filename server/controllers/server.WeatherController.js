@@ -1,7 +1,10 @@
 //import request from 'request';
 const axios =require("axios");
 const fs = require('fs');
-let cityArr= JSON.parse(fs.readFileSync(process.cwd()+'\\server\\adminData\\cityData.JSON'));
+const path = require('path')
+let filePath = path.toNamespacedPath('server/adminData/cityData.json');
+console.log(filePath);
+let cityArr= JSON.parse(fs.readFileSync(filePath));
 
 //export const report = (req,res)=> {
 exports.report = (req,res)=> {
