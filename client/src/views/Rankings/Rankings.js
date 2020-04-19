@@ -143,6 +143,7 @@ function Rankings(){
             data ={data}
             width={2}
             height={1}
+            options= {{scales: {yAxes: [{ticks: {beginAtZero: true}}]}}}
           />
           <Button onClick={setWeekly} variant='secondary'>Week</Button>
           <Button onClick={setMonthly} variant='secondary'>Month</Button>
