@@ -70,6 +70,7 @@ render(){
 
     return(
       <div className="App">
+        <NavBar/>
         <h1> User is not admin </h1>
       </div>
     );
