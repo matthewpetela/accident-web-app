@@ -2,7 +2,7 @@
 const axios =require("axios");
 const fs = require('fs');
 const path = require('path');
-const config = require('../config/config.js');
+const config = process.env.darkSkyKey || require('../config/config.js');
 let filePath = path.toNamespacedPath('server/adminData/cityData.json');
 console.log(filePath);
 let cityArr= JSON.parse(fs.readFileSync(filePath));
