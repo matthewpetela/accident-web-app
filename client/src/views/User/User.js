@@ -5,11 +5,6 @@ import UserIcon from "../../assets/icons/user.png"
 import axios from 'axios';
 
 function User() {
-  var Email
-  var Name
-  var quizGrade
-  var quizComplete
-
     function getDetails(){
         const loginDetails = localStorage.getItem('token')
         var accountDetails
@@ -21,10 +16,9 @@ function User() {
         { headers: {"Authorization" : `bearer ${loginDetails}`} })
         .then(res=>{
           console.log(res);
-          Email = res.data.email
-          Name = res.data.name
           quizGrade = res.data.quizGrade
-          console.log(Email + Name + quizGrade)
+          localStorage.setItem("email", res.data.email)
+          localStorage.setItem("name", res.data.name)
 
         })
         .catch(error => {
@@ -45,6 +39,11 @@ function User() {
         localStorage.removeItem('token')
         window.location.replace("https://accident-web-app.herokuapp.com/home");
     }
+
+    var Email
+    var Name
+    var quizGrade
+    var quizComplete
 
 
     const IconSpacing = {
@@ -81,19 +80,18 @@ function User() {
 
     }
 
-
 	return (
         <div>
+        {getDetails()}
             <div className="head">
                 <h1>City Traffic </h1>
-                {getDetails()}
             </div>
             <NavBar/>
             <div style={IconSpacing}><img style={Icon} src={UserIcon}/></div>
             <div style={DetailsContainer}>
                 <div style={Details}>
-                    <div>Name: {Name}</div>
-                    <div>Email: {Email}</div>
+                    <div>Name: {localStorage.getItem("name")}</div>
+                    <div>Email: {localStorage.getItem("email")}</div>
                     <div>Quiz: {quizComplete}</div>
                 </div>
             </div>
