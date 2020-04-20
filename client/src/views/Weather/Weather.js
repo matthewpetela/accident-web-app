@@ -13,8 +13,10 @@ import windIcon from '../../assets/icons/wind.png'
 import fogIcon from '../../assets/icons/fog.png'
 import partlyCloudyDayIcon from '../../assets/icons/partlyCloudyDay.png'
 import partlyCloudyNightIcon from '../../assets/icons/partlyCloudyNight.png'
+import cityData from '../../adminData/cityData';
 
 import {Form} from 'react-bootstrap';
+import { Helmet } from 'react-helmet'
 
 function Weather(){
 
@@ -31,13 +33,17 @@ function Weather(){
 	var [weatherIcon, setWeatherIcon] = useState(defaultIcon);
 	var [iconData, setIconData] = useState('Loading...');
 	var [visibilityData, setVisibilityData] = useState('Loading...');
+	var [cityName, setCityName] = useState('San Francisco');
+	//var [url, setUrl] = useEffect();
+	
+	var url = {url: 'https://accident-web-app.herokuapp.com/api/weather/San Francisco',};
 	
     useEffect(() => {
-        // Update the document title using the browser API
-        request({
-            url: 'https://accident-web-app.herokuapp.com/api/weather/test', //HARDCODED TO NEW YORK CITY
-			//url: 'http://localhost:3000/api/weather/test', //HARDCODED TO NEW YORK CITY
-        }, async (error, response, body) => {
+        sendRequest();
+    },[]);
+	
+	const sendRequest = () => {
+		request(url, async (error, response, body) => {
             if (error) {
                 setSummaryData('error');
                 console.log(error);
@@ -49,7 +55,7 @@ function Weather(){
 				setPrecipData(fullBody.currently.precipIntensity);
 				setVisibilityData(fullBody.currently.visibility);
 				
-				var weatherType = fullBody.daily.icon;
+				var weatherType = fullBody.currently.icon;
 				if(weatherType = "rain") {
 					setWeatherIcon(rainIcon);
 					setIconData("rain");
@@ -88,10 +94,22 @@ function Weather(){
                 //setWeatherData(fullBody.currently.time);
             }
         });
-    },[]);
-
+	}	
+	
+	const MenuChange = (choice) => {
+		setCityName(choice);
+		const urlTemp = 'https://accident-web-app.herokuapp.com/api/weather/' + choice;
+		url = {url: urlTemp};
+		sendRequest();
+		
+	}
+	
   return (
     <div className='App'>
+	  <Helmet>
+	    <title>{ cityName}</title>
+	  </Helmet>	
+	
       <div className='head'>
         <h1> City Traffic </h1>
       </div>
@@ -99,15 +117,19 @@ function Weather(){
    
 	  <div className='outerDiv'>
 	    <div className='CityName'>
-		  <h1>New York City</h1>
+		  <h1>{cityName}</h1>
 	    </div>
 		<div className='flexContainer'>
 			<div className='Form'>
-				<Form>
-					<Form.Control as="select">
-					  <option>New York City</option>
-					</Form.Control>
-				</Form>
+				<select class="custom-select" onChange={event => (MenuChange(event.target.value))}>
+					
+					{
+						cityData.map((data, index) => 
+						(
+							<option value={data.city}>{data.city}</option>
+						))
+					}
+				</select>
 			</div>
 			<div className='Icon'>
 				<img style={imageStyling} src={weatherIcon} />

@@ -14,7 +14,8 @@ exports.report = (req,res)=> {
             message: " Empty!"
         });
     }
-    console.log(found['coordinates'][0]);
+    //console.log(found['coordinates'][0]);
+	console.log('https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/'+found['coordinates'][0]+','+found['coordinates'][1]);
     axios
         .get('https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/'+found['coordinates'][0]+','+found['coordinates'][1], this.state)
         .then(response => {
