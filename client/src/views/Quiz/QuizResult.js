@@ -3,13 +3,11 @@ import GoldStar from "../../assets/icons/goldstar.png"
 import Fail from "../../assets/icons/fail.png"
 import request from 'request';
 const QuizResult = (props) => {
-    //Functions for what should happen on quiz submit        
+    //Functions that should save quiz grade
     function saveQuizGrade(){
-        //request.post("http://localhost:3000/upload/userQuizResults", quizGrade)
-
+        request.post("https://accident-web-app.herokuapp.com/api/upload/userQuizResults", quizGrade)
     }
     var quizGrade = props.quizGrade.toFixed(0)
-    var starsEarned = 1
     const questionBox = {
         backgroundColor: "royalblue",        
         display: 'inline-block',

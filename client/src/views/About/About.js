@@ -61,7 +61,7 @@ function About(){
           </Row>
         </Tab.Container>
       </Jumbotron>
-      <img src={logo} className="trafficLogo" alt="logo" />
+      
       </div>
     </div>
   )
