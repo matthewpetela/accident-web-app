@@ -3,19 +3,36 @@ import request from 'request';
 import NavBar from "../../components/Header/NavBar";
 import UserIcon from "../../assets/icons/user.png"
 
-function User() {
-    function getEmail()
-    {
-        localStorage.getItem("token")
-        
-        return "placeholder@gmail.com"
+function User() {    
+    function getDetails(){
+        const loginDetails = localStorage.getItem('token')
+        var accountDetails
+        request.get("https://accident-web-app.herokuapp.com/users/userAccount", loginDetails, accountDetails)
+        //request.get("http://localhost:3000/users/userAccount", loginDetails, accountDetails)
+        Email = accountDetails.email
+        Name = accountDetails.name
+        var quizGrade = accountDetails.quizGrade
+        if(quizGrade == 100)
+        {
+            quizComplete = "passed"
+        }
+        else
+        {
+            quizComplete = "not passed"
+        }
     }
-    function getName() {
-        return "John T Smith"
+    function logout(){
+        localStorage.removeItem('token')
+        window.location.replace("https://accident-web-app.herokuapp.com/home");
     }
-    function getStars() {
-        return "completed"
-    }
+
+
+    var Email
+    var Name
+    var quizComplete
+
+
+
     const IconSpacing = {
         textAlign: 'center',             
         color: 'blue',
@@ -38,11 +55,19 @@ function User() {
     const Details = {
         margin: '2vmin'
     }
+    const LogoutStyle = {
+        backgroundColor: 'red',
+        color: 'white',
+        borderRadius: '20px',
+        margin: 'auto',
+        textAlign: 'center',
+        display: 'block',
+        marginTop: '3vh',
+        fontSize: '3vmin'
     
-    const Email = getEmail()
-    const Name = getName()
-    const StarsEarned = getStars()
-	return (       
+    }
+    
+	return (    
         <div>
             <div className="head">
                 <h1>City Traffic </h1>
@@ -53,10 +78,10 @@ function User() {
                 <div style={Details}>
                     <div>Name: {Name}</div>
                     <div>Email: {Email}</div>
-                    <div>Quiz: {StarsEarned}</div> 
-                </div>
-                             
-            </div>            
+                    <div>Quiz: {quizComplete}</div> 
+                </div>                             
+            </div>
+            <button style={LogoutStyle} onClick={(e) => logout()}>Logout</button>            
         </div>
         
     );
