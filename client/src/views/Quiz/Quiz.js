@@ -17,7 +17,7 @@ function Quiz() {
     {
         const loginDetails = localStorage.getItem('token')
         var accountDetails
-        request.get("https://accident-web-app.herokuapp.com/users/userAccount", loginDetails, accountDetails)
+        request.get("https://accident-web-app.herokuapp.com/api/users/userAccount", loginDetails, accountDetails)
         var quizGrade = accountDetails.quizGrade
         if(quizGrade == 100)
         {

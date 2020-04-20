@@ -5,7 +5,7 @@ import request from 'request';
 const QuizResult = (props) => {
     //Functions that should save quiz grade
     function saveQuizGrade(){
-        request.post("https://accident-web-app.herokuapp.com/upload/userQuizResults", quizGrade)
+        request.post("https://accident-web-app.herokuapp.com/api/upload/userQuizResults", quizGrade)
     }
     var quizGrade = props.quizGrade.toFixed(0)
     const questionBox = {
