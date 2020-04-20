@@ -7,8 +7,7 @@ function User() {
     function getDetails(){
         const loginDetails = localStorage.getItem('token')
         var accountDetails
-        request.get("https://accident-web-app.herokuapp.com/users/userAccount", loginDetails, accountDetails)
-        //request.get("http://localhost:3000/users/userAccount", loginDetails, accountDetails)
+        request.get("https://accident-web-app.herokuapp.com/api/users/userAccount", loginDetails, accountDetails)
         Email = accountDetails.email
         Name = accountDetails.name
         var quizGrade = accountDetails.quizGrade
@@ -26,12 +25,9 @@ function User() {
         window.location.replace("https://accident-web-app.herokuapp.com/home");
     }
 
-
     var Email
     var Name
     var quizComplete
-
-
 
     const IconSpacing = {
         textAlign: 'center',             
