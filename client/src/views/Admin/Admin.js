@@ -25,12 +25,13 @@ handleUpload(acceptedFiles){
   const formData = new FormData();
 
   formData.append("file", acceptedFiles[0]);
+  var token = localStorage.getItem("token")
 
   console.log(formData);
   console.log(acceptedFiles);
 
   return axios.post(process.env.NODE_ENV === 'production'?'https://accident-web-app.herokuapp.com/api/users/login':'http://localhost:5000/api/upload/crashes', localStorage.getItem("token"), formData, {
-        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        headers: {"Authorization" : `bearer ${token}`}
   }).then(response =>{
     console.log(response);
   }).catch(error => {
