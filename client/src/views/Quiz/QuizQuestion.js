@@ -9,6 +9,7 @@ const QuizQuestion = (props) => {
     const [complete, editComplete] = useState(false)
     const [grade, editGrade] = useState(0)
     var maxIndex = QuizData.length - 1
+
     function uncheckButtons()
     {
         document.getElementById("A").checked = false
