@@ -1,10 +1,12 @@
 //import request from 'request';
 const axios =require("axios");
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
+const config = require('../config/config.js');
 let filePath = path.toNamespacedPath('server/adminData/cityData.json');
 console.log(filePath);
 let cityArr= JSON.parse(fs.readFileSync(filePath));
+
 
 //export const report = (req,res)=> {
 exports.report = (req,res)=> {
@@ -16,7 +18,7 @@ exports.report = (req,res)=> {
     }
     console.log(found['coordinates'][0]);
     axios
-        .get('https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/'+found['coordinates'][0]+','+found['coordinates'][1], this.state)
+        .get('https://api.darksky.net/forecast/'+config.darkSkyKey+'/'+found['coordinates'][0]+','+found['coordinates'][1], this.state)
         .then(response => {
             res.send(response.data);
         })
