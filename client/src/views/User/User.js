@@ -62,7 +62,7 @@ function User() {
         fontSize: '3vmin'
     
     }
-    
+    getDetails()
 	return (    
         <div>
             <div className="head">

@@ -43,6 +43,7 @@ function Quiz() {
     const quizBackground = {
         marginTop: '125px'       
     }
+    isQuizComplete()
     if(!quizComplete)
     {
         return (       
