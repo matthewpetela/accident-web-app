@@ -1,5 +1,5 @@
 .header {
-    background: CornflowerBlue;
+   
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -13,9 +13,7 @@
     padding: 10%;
 }
 
-.nav-logo:hover {
 
-}
 
 .nav-items {
     display:flex;
