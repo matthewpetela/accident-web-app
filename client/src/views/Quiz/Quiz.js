@@ -5,6 +5,7 @@ import './Quiz.css';
 import NavBar from "../../components/Header/NavBar";
 import QuizData from "./DummyData";
 import request from 'request';
+import axios from 'axios';
 
 function Quiz() {
     const [questionIndex, editIndex] = useState(0)
@@ -12,22 +13,35 @@ function Quiz() {
     const [currentAnswer, editCurrentA] = useState("")
 
     var quizComplete
-    //Is this function correct?
+    var quizGrade
+
     function isQuizComplete()
     {
         const loginDetails = localStorage.getItem('token')
-        var accountDetails
-        request.get("https://accident-web-app.herokuapp.com/api/users/userAccount", loginDetails, accountDetails)
-        var quizGrade = accountDetails.quizGrade
+        var accountDetails        
+
+        axios
+        .get(process.env.NODE_ENV === 'production'?'https://accident-web-app.herokuapp.com/api/users/userAccount':'http://localhost:5000/api/users/userAccount',
+        { headers: {"Authorization" : `bearer ${loginDetails}`} })
+        .then(res=>{
+          console.log(res);
+          quizGrade = res.data.quizGrade          
+
+        })
+        .catch(error => {
+          console.log(error)
+        })
+
         if(quizGrade == 100)
         {
-            quizComplete = true
+            quizComplete = "passed"
         }
         else
         {
-            quizComplete = false
+            quizComplete = "not passed"
         }
     }
+
     const titleStyling = {
         textAlign: 'center',
         marginBottom: '100px',

@@ -1,4 +1,42 @@
-## _**PLEASE READ THIS TO COMPLETION BEFORE ASKING ANY QUESTIONS!**_
+## _**Overview of project with features **_
+
+  This website’s function is to compare traffic conditions and accidents from different cities. It also provides the general ranking of cities, a weather report, and driving test quiz. To make the website easier to navigate for clients, we decided to have three features that the client can select depending on his or her needs. 
+The first option will let the user choose a city and then compare it with four different cities. The comparison will provide information about the number of accidents, weather, and ranking.
+
+The second option will provide the user with a general ranking of the cities, ordered by their number of accidents. It will have a chart and a graph for the user to easily visualize their chosen city’s statistics.
+
+The third option will provide the user with sample driving test questions where they can test their understanding of the driving rules. If the user does well, they will receive a star to encourage the user to complete more quizzes. Users that do especially well on these quizzes may qualify for insurance deductions.
+
+Those three options are the core of the website. However there are other features that special users can have access to, such as admin privileges where the user can have access to insurance data and all other databases. We will also have a tab named “About Us” where the user will see the mission of the company and its job and responsibilities. 
+
+## _**LIST of API**_
+
+Dark Sky API - Requests are made to[https://api.darksky.net/forecast/apiKey/](https://api.darksky.net/forecast/apiKey/), with the coordinates as an argument. For example, to get the weather information on Dallas, a GET request is made to [https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/32.8978,-97.0189](https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/32.8978,-97.0189), which will then return the full JSON file for current weather in Dallas.
+
+Collating average weather normals was performed using a file parsing script on data from https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/climate-normals/1981-2010-normals-data, particularly the ftp server from ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/. 
+
+Bulk city weather averages require paid geocoding services for locations listed in crash data reports to find closest weather stations from the NOAA. Also, calculating cities with similar temperatures is O(n^2), so it should be calculated sparingly.
+
+## _**Project Handoff**_
+
+Here are some project guideline handoff:
+config variables are found in server/config/config.js. The variables are
+MongoURI: Integrate your chosen MongoDB solution here
+secretOrKey: The key used for user password encryption. Keep it long, random, and secret(!). 
+darkSkyKey: Create a developer account and choose the data servicing plan that will provide weather reports for the website's traffic of the users.
+
+To deploy the heroku app the first thing you need to do is to create a heroku account [https://www.heroku.com](https://www.heroku.com). Just make sure when creating the account  for the primary development language select node.js. Once logged in click on new button which will allow you to create a new app. Type the name of the app you like. To run the app first make sure you downloaded the Heroku CLI. Once that is done type the following command git init , heroku git : remote -a < replace this with app name>. . to deploy the application  just write the $ git add $ git commit -m ‘’message’’ $ git push heroku master. Once you have done that you can click on the top right corner open app and the web app should be functional
+
+## _other important readme file for the backend and the server folder**_
+
+controller: [https://github.com/matthewpetela/accident-web-app/blob/master/server/controllers/controllerREADME.md]
+
+Routes: [https://github.com/matthewpetela/accident-web-app/blob/master/server/routes/routerREADME.md]
+
+
+model: [https://github.com/matthewpetela/accident-web-app/blob/master/server/models/modelsREADME.md] 
+
+
 
 ### _**IMPORTANT NOTES**_ - 
 This project does not have a mongoDB connection setup. Setup the connection based on the environments below.

@@ -15,6 +15,8 @@ class Signin extends Component {
         email: '',
         password: '',
         name: '',
+        address: '',
+        insurance:'', 
         hasAgreed: false
     };
 
@@ -72,6 +74,16 @@ render() {
                 <label className="FormField__Label" htmlFor="name">Full Name</label>
                 <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.state.name} onChange={this.handleChange} />
                 </div>
+
+                <div className = "FormField">
+                <label className="FormField__Label" htmlFor="address">Address</label>
+                <input type="text" id="address" className="FormField__Input" placeholder="Enter your address" name="address" value={this.state.address} onChange={this.handleChange} />
+                </div>
+
+                <div className="FormField">
+                <label className="FormField__Label" htmlFor="insurance">Insurance</label>
+                <input type="insurance" id="insurance" className="FormField__Input" placeholder="Enter your insurance" name="insurance" value={this.state.insurance} onChange={this.handleChange}  />
+              </div>
 
                 <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
