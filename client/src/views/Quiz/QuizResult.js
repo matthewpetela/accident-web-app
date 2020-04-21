@@ -2,12 +2,27 @@ import React from 'react';
 import GoldStar from "../../assets/icons/goldstar.png"
 import Fail from "../../assets/icons/fail.png"
 import request from 'request';
+import axios from 'axios';
+
 const QuizResult = (props) => {
+    var quizGrade = props.quizGrade.toFixed(0)
+
     //Functions that should save quiz grade
     function saveQuizGrade(){
-        request.post("https://accident-web-app.herokuapp.com/api/upload/userQuizResults", quizGrade)
+        //request.post("https://accident-web-app.herokuapp.com/api/upload/userQuizResults", quizGrade)
+        const loginDetails = localStorage.getItem('token')
+        var accountDetails
+        axios
+        .post(process.env.NODE_ENV === 'production'?'https://accident-web-app.herokuapp.com/api/users/userAccount':'http://localhost:5000/api/users/userAccount',
+        { data: {quizGrade} })
+        .then(res=>{
+          console.log(res);         
+        })
+        .catch(error => {
+          console.log(error)
+        })        
     }
-    var quizGrade = props.quizGrade.toFixed(0)
+
     const questionBox = {
         backgroundColor: "royalblue",        
         display: 'inline-block',
