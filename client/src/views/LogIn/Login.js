@@ -67,10 +67,6 @@ class LogInForm extends Component{
 
             <form onSubmit={this.handleSubmit} className="FormFields" >
 
-                <div className = "FormField">
-                <label className="FormField__Label" htmlFor="name">Full Name</label>
-                <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" />
-                </div>
 
                 <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
