@@ -2,6 +2,8 @@ import React from 'react';
 import GoldStar from "../../assets/icons/goldstar.png"
 import Fail from "../../assets/icons/fail.png"
 import request from 'request';
+
+
 const QuizResult = (props) => {
     //Functions that should save quiz grade
     function saveQuizGrade(){
