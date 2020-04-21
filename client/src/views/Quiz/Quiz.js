@@ -33,9 +33,6 @@ function Quiz() {
         marginBottom: '100px',
         marginTop: '30px'
     }
-	const pageStyling = {
-        
-    }
     const containerStyling = {       
         margin: '0 auto',
         textAlign: 'center'
