@@ -13,7 +13,7 @@ Those three options are the core of the website. However there are other feature
 
 Dark Sky API - Requests are made to[https://api.darksky.net/forecast/apiKey/](https://api.darksky.net/forecast/apiKey/), with the coordinates as an argument. For example, to get the weather information on Dallas, a GET request is made to [https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/32.8978,-97.0189](https://api.darksky.net/forecast/0f8e93980168dda45bd651f9c01a18a7/32.8978,-97.0189), which will then return the full JSON file for current weather in Dallas.
 
-Collating average weather normals was performed using a file parsing script on data from [https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/climate-normals/1981-2010-normals-data, particularly the ftp server from ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/] (https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/climate-normals/1981-2010-normals-data), particularly the ftp server from ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/. 
+Collating average weather normals was performed using a file parsing script on data from https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/climate-normals/1981-2010-normals-data, particularly the ftp server from ftp://ftp.ncdc.noaa.gov/pub/data/normals/1981-2010/. 
 
 Bulk city weather averages require paid geocoding services for locations listed in crash data reports to find closest weather stations from the NOAA. Also, calculating cities with similar temperatures is O(n^2), so it should be calculated sparingly.
 
@@ -29,19 +29,14 @@ To deploy the heroku app the first thing you need to do is to create a heroku ac
 
 ## _other important readme file for the backend and the server folder**_
 
-controller: [https://github.com/matthewpetela/accident-web-app/blob/master/server/controllers/controllerREADME.md](https://github.com/matthewpetela/accident-web-app/blob/master/server/controllers/controllerREADME.md)
+controller: [https://github.com/matthewpetela/accident-web-app/blob/master/server/controllers/controllerREADME.md]
 
 Routes: [https://github.com/matthewpetela/accident-web-app/blob/master/server/routes/routerREADME.md]
-(https://github.com/matthewpetela/accident-web-app/blob/master/server/routes/routerREADME.md)
-
-model: [https://github.com/matthewpetela/accident-web-app/blob/master/server/models/modelsREADME.md] (https://github.com/matthewpetela/accident-web-app/blob/master/server/models/modelsREADME.md)
 
 
+model: [https://github.com/matthewpetela/accident-web-app/blob/master/server/models/modelsREADME.md] 
 
 
-
-
-## _**PLEASE READ THIS TO COMPLETION BEFORE ASKING ANY QUESTIONS!**_
 
 ### _**IMPORTANT NOTES**_ - 
 This project does not have a mongoDB connection setup. Setup the connection based on the environments below.
