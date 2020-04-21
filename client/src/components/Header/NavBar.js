@@ -13,6 +13,7 @@ const NavBar = () => {
         .then(res=>{
           console.log(res);         
           localStorage.setItem("name", res.data.name)
+          loggedIn = true
         })
         .catch(error => {
           console.log(error)

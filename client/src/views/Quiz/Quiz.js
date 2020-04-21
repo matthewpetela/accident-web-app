@@ -47,9 +47,6 @@ function Quiz() {
         marginBottom: '100px',
         marginTop: '30px'
     }
-	const pageStyling = {
-        
-    }
     const containerStyling = {       
         margin: '0 auto',
         textAlign: 'center'
@@ -57,8 +54,6 @@ function Quiz() {
     const quizBackground = {
         marginTop: '125px'       
     }
-    
-
     isQuizComplete()
     if(!quizComplete)
     {
