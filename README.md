@@ -25,6 +25,8 @@ MongoURI: Integrate your chosen MongoDB solution here
 secretOrKey: The key used for user password encryption. Keep it long, random, and secret(!). 
 darkSkyKey: Create a developer account and choose the data servicing plan that will provide weather reports for the website's traffic of the users.
 
+To maintain security admin accounts must be manually created by the system administrator. First a regular account should be created. Then the administrator must go into MongoDB and edit the admin field to true for that user.
+
 To deploy the heroku app the first thing you need to do is to create a heroku account [https://www.heroku.com](https://www.heroku.com). Just make sure when creating the account  for the primary development language select node.js. Once logged in click on new button which will allow you to create a new app. Type the name of the app you like. To run the app first make sure you downloaded the Heroku CLI. Once that is done type the following command git init , heroku git : remote -a < replace this with app name>. . to deploy the application  just write the $ git add $ git commit -m ‘’message’’ $ git push heroku master. Once you have done that you can click on the top right corner open app and the web app should be functional
 
 ## _other important readme file for the backend and the server folder**_
