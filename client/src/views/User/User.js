@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import request from 'request';
 import NavBar from "../../components/Header/NavBar";
 import UserIcon from "../../assets/icons/user.png"
@@ -36,8 +36,20 @@ function User() {
         }
     }
     function logout(){
-        localStorage.removeItem('token')
+        localStorage.clear();
         window.location.replace("https://accident-web-app.herokuapp.com/home");
+    }
+
+    function isLoggedIn(){
+      console.log(localStorage.getItem("token"))
+      if (localStorage.getItem("token") == null){
+        return (
+          <div className="head">
+            <NavBar/>
+            <h2> Not Logged In </h2>
+          </div>
+        )
+      }
     }
 
     var Email
@@ -79,8 +91,9 @@ function User() {
         fontSize: '3vmin'
 
     }
+    isLoggedIn()
     getDetails()
-	return (    
+	return (
         <div>
         {getDetails()}
             <div className="head">

@@ -39,6 +39,8 @@ class LogInForm extends Component{
 				console.log(response)
         localStorage.setItem("token", response.data.token.substring(7))
         localStorage.setItem("admin", response.data.admin)
+        localStorage.setItem("loggedIn", "true")
+        localStorage.setItem("email", this.state.email)
         console.log("token:" + localStorage.getItem("token"))
         this.props.history.push("/home");
 			})

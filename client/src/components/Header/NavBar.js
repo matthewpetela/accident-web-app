@@ -3,23 +3,21 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import axios from 'axios';
 const NavBar = () => {
-    var loggedIn = false
     function getDetails(){
         const loginDetails = localStorage.getItem('token')
-        var accountDetails       
+        var accountDetails
         axios
         .get(process.env.NODE_ENV === 'production'?'https://accident-web-app.herokuapp.com/api/users/userAccount':'http://localhost:5000/api/users/userAccount',
         { headers: {"Authorization" : `bearer ${loginDetails}`} })
         .then(res=>{
-          console.log(res);         
+          console.log(res);
           localStorage.setItem("name", res.data.name)
-          loggedIn = true
         })
         .catch(error => {
           console.log(error)
-        })        
+        })
     }
-    if(loggedIn){
+    if(localStorage.getItem("loggedIn") == "true"){
         return (
             <div className = "header">
                 <nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -28,8 +26,7 @@ const NavBar = () => {
                         <a class="nav-item nav-link" href="/about">About</a>
                         <a class="nav-item nav-link" href="/weather">Weather</a>
                         <a class="nav-item nav-link" href="/rankings">Rankings</a>
-                        <a class="nav-item nav-link" href="/user">localStorage.getItem("name")</a>
-                        <a class="nav-item nav-link" href="/signup">Sign Up</a>
+                        <a class="nav-item nav-link" href="/user">{localStorage.getItem("email")}</a>
                         <a class="nav-item nav-link" href="/quiz">Quiz</a>
                         <a class="nav-item nav-link" href="/admin">Admin</a>
                     </div>
@@ -54,7 +51,7 @@ const NavBar = () => {
                     </div>
                 </nav>
             </div>
-        ) 
+        )
     }
 };
 

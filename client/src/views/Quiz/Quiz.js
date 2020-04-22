@@ -18,14 +18,14 @@ function Quiz() {
     function isQuizComplete()
     {
         const loginDetails = localStorage.getItem('token')
-        var accountDetails        
+        var accountDetails
 
         axios
         .get(process.env.NODE_ENV === 'production'?'https://accident-web-app.herokuapp.com/api/users/userAccount':'http://localhost:5000/api/users/userAccount',
         { headers: {"Authorization" : `bearer ${loginDetails}`} })
         .then(res=>{
           console.log(res);
-          quizGrade = res.data.quizGrade          
+          quizGrade = res.data.quizGrade
 
         })
         .catch(error => {
@@ -35,10 +35,12 @@ function Quiz() {
         if(quizGrade == 100)
         {
             quizComplete = "passed"
+            localStorage.setItem("quizStatus", "true")
         }
         else
         {
             quizComplete = "not passed"
+            localStorage.setItem("quizStatus", "false")
         }
     }
 
@@ -47,17 +49,17 @@ function Quiz() {
         marginBottom: '100px',
         marginTop: '30px'
     }
-    const containerStyling = {       
+    const containerStyling = {
         margin: '0 auto',
         textAlign: 'center'
     }
     const quizBackground = {
-        marginTop: '125px'       
+        marginTop: '125px'
     }
     isQuizComplete()
-    if(!quizComplete)
+    if(localStorage.getItem("quizStatus") == "false" || localStorage.getItem("quizStatus") == "")
     {
-        return (       
+        return (
             <div className="App">
                 <div className="head">
                     <h1>City Traffic </h1>
@@ -67,14 +69,14 @@ function Quiz() {
                     <div style={containerStyling}>
                         <QuizQuestion/>
                     </div>
-                </div>            
-                 
+                </div>
+
             </div>
-            
+
         );
     }
 	else{
-        return (       
+        return (
             <div className="App">
                 <div className="head">
                     <h1>City Traffic </h1>
@@ -82,10 +84,10 @@ function Quiz() {
                 <NavBar/>
                 <div style={quizBackground}>
                     <h1>Quiz already passed!</h1>
-                </div>            
-                 
+                </div>
+
             </div>
-            
+
         );
     }
 }
