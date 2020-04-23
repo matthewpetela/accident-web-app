@@ -19,5 +19,6 @@
 
 ~validateController detects malformed inputs for login and register
 
-    Currently busted as frontend hasn't sent all user data
+    the frontend send the data that the user provided and does a user authentication and make sure 
+    the information are correct. if correct the user will procced to login if not it will stay in the sign up page
 
