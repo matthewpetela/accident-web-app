@@ -113,9 +113,12 @@ To learn how to deploy a full-stack web app to heroku, check out [this great gui
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## _**References*_
+# _**References*_
 
-user authentication : https://www.twitch.tv/videos/566633533
-htpp post and get request: https://www.youtube.com/watch?v=x9UEDRbLhJE
-login and sign up build: https://www.youtube.com/watch?v=56E8b9prPTs
-basic understanding of react: https://www.youtube.com/watch?v=sBws8MSXN7A
+user authentication : https://www.twitch.tv/videos/566633533 ,
+
+htpp post and get request: https://www.youtube.com/watch?v=x9UEDRbLhJE ,
+
+login and sign up build: https://www.youtube.com/watch?v=56E8b9prPTs ,
+
+basic understanding of react: https://www.youtube.com/watch?v=sBws8MSXN7A .
